@@ -1,0 +1,96 @@
+.main-div-for-dashboard-comp{
+    margin-top: -30px;
+}
+
+.div-contains-heading-of-dashboard-comp{
+    color: white;
+    text-align: center;
+}
+
+.heading-of-the-dashboard-comp-i{
+    margin-top: 20px ;
+    font-family: MuseoModerno;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 52px;
+    letter-spacing: 0.04em;
+}
+
+.heading-of-the-dashboard-comp-ii{
+    margin-top: 20px;
+    font-family: MuseoModerno;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 26px;
+    letter-spacing: 0.015em;
+}
+
+.div-contains-cards-of-the-dashboard-comp{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.card-of-the-dashboard-comp{
+    max-width: 300px;
+    border-radius: 50px;
+    padding: 20px;
+    background-color: #FF5731C7;
+    transition: box-shadow 0.3s ease;
+    height: 350px;
+    margin: 30px;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+
+.card-of-the-dashboard-comp:hover{
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+
+.title-of-card-dashboard-comp{
+    margin-left: 50px;
+    width: 150px;
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.des-of-card-of-dashboard-comp{
+    padding: 5px;
+    border-radius: 10px;
+    height: 100px;
+    font-size: 16px;
+    text-align: center;
+    color: white;
+}
+
+.image-of-the-card-dashboard-comp{
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 35px;
+    margin-bottom: 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .div-contains-cards-of-the-dashboard-comp {
+      flex-direction: column; /* Stack cards vertically on smaller screens */
+    }
+  
+    .card-of-the-dashboard-comp {
+      width: 100%; /* Make cards full-width on smaller screens */
+      margin: 15px 0; /* Adjust margin for spacing */
+    }
+  
+    .title-of-card-dashboard-comp,
+    .des-of-card-of-dashboard-comp {
+      width: auto; /* Adjust text width */
+      margin: 10px 0; /* Adjust text margin */
+    }
+  }

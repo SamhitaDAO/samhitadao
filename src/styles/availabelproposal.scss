@@ -1,0 +1,286 @@
+.availabel-proposal-main-div {
+  width: 100%;
+  width: 100%;
+  max-width: 1240px;
+  margin: 20px auto;
+}
+.availabel-proposal-section1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+.availabel-proposal {
+  margin: 0 auto;
+}
+.A-proposal-title {
+  font-family: "MuseoModerno";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 48px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.availabel-proposal-section2 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+#select-label-status {
+  color: grey;
+  font-family: "MuseoModerno";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+}
+svg.css-hfutr2-MuiSvgIcon-root-MuiSelect-icon {
+  fill: #fffffa77;
+}
+div.select-parent {
+  color: #ffffff;
+  border-radius: 10px;
+  border: none;
+  background-color: #fff;
+  color: #ff5f00;
+  transition: box-shadow 300ms cubic-bezier(0.55, 0, 0.1, 1) 0ms;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px,
+    rgba(0, 0, 0, 0.23) 0px 0px 3px -2px, rgba(0, 0, 0, 0.17) 0px 0px 25px;
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.09),
+    rgba(255, 255, 255, 0.09)
+  );
+}
+.availabel-proposal-section3 {
+  width: 100%;
+  display: grid;
+  margin-top: 20px;
+}
+.proposal-grid-title {
+  margin: 0;
+}
+#dropdown-formcontrol {
+  min-width: 150px;
+}
+.css-jedpe8-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-jedpe8-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-jedpe8-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
+  color: #ff5f00;
+  text-align: center;
+}
+
+.create-proposal-parent {
+  background-color: rgb(21, 22, 25);
+  color: rgb(255, 255, 255);
+  transition: box-shadow 300ms cubic-bezier(0.55, 0, 0.1, 1) 0ms;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px,
+    rgba(0, 0, 0, 0.23) 0px 0px 3px -2px, rgba(0, 0, 0, 0.17) 0px 0px 25px;
+}
+
+button.create-proposal-btn {
+  background: #7564d4;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+  padding: 10px 20px;
+  margin: 10px;
+  width: 180px;
+  font-family: "MuseoModerno";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 118.52%;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  border: none;
+}
+
+button.create-proposal-btn-popup {
+  background-color: #f14c2c;
+  border: 1px solid #f14c2c;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #fefcfc;
+  padding: 10px 30px;
+  border-radius: 10px;
+  width: 100%;
+}
+.proposal-details table {
+  border-radius: 10px;
+  width: 400px;
+  height: 550px;
+  border: none;
+  background-color: #ffa046;
+  border-radius: 0 0 2.4rem 2.4rem;
+  color: rgb(255, 255, 255);
+  transition: box-shadow 300ms cubic-bezier(0.55, 0, 0.1, 1) 0ms;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px,
+    rgba(0, 0, 0, 0.23) 0px 0px 3px -2px, rgba(0, 0, 0, 0.17) 0px 0px 25px;
+}
+.vote-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.proposal-details table thead {
+  border-radius: 40px 40px 0px 0px;
+  padding: 0px 75px;
+
+  background-color: transparent;
+  color: #fefcfc;
+}
+
+.proposal-details table thead {
+  border-bottom: 1px solid #fefcfc;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  min-height: 100px;
+}
+
+.proposal-details table thead th {
+  padding: 10px;
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: #7564d4;
+}
+
+.proposal-details table thead div {
+  background-color: #ff5731;
+  margin-top: 10px;
+  margin-left: 180px;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  font-family: "MuseoModerno";
+  font-style: normal;
+  font-weight: 500;
+}
+
+.proposal-details table thead .proposal-inactive {
+  background-color: #7564d4;
+  margin-top: 10px;
+  margin-left: 170px;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  font-family: "MuseoModerno";
+  font-style: normal;
+  font-weight: 500;
+}
+
+.proposal-details table td {
+  padding: 10px 20px;
+  font-weight: 700;
+}
+tbody {
+  padding: 0px 50px;
+}
+
+.proposal-details-content {
+  display: flex;
+  flex-direction: row;
+
+  label {
+    padding: 10px 10px;
+  }
+
+  .p-details-content {
+    padding: 10px 20px;
+  }
+}
+
+.proposal-details table td p {
+  font-family: "MuseoModerno";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.proposal-details table {
+  border-radius: 2.4rem 2.4rem 2.4rem 2.4rem;
+}
+
+.last-proposal {
+  border-radius: 0 0 2.4rem 2.4rem;
+}
+
+.artist-streams {
+  text-align: center;
+}
+
+.css-a5rdam-MuiGrid-root > .MuiGrid-item {
+  margin-top: 50px;
+}
+
+@media screen and (min-width: 2561px) {
+}
+
+@media screen and (min-width: 2000px) and (max-width: 2560px) {
+}
+
+@media screen and (min-width: 1600px) and (max-width: 1999px) {
+}
+
+@media screen and (min-width: 1440px) and (max-width: 1599px) {
+}
+
+@media screen and (min-width: 1246px) and (max-width: 1439px) {
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1245px) {
+  .all-datadao-section2 {
+    div {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 2fr));
+    }
+  }
+  .proposal-details table {
+    margin: 0 auto;
+    width: 45vw;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .all-datadao-section2 {
+    div {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 2fr));
+    }
+  }
+  .proposal-details table {
+    margin: 0 auto;
+    width: 330px;
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .all-datadao-section2 {
+    div {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
+    }
+  }
+  .proposal-details table {
+    margin: 0 auto;
+    width: 80vw;
+    height: 300px;
+  }
+  button.create-proposal-btn {
+    width: 90px;
+    height: 50px;
+    margin: 10px;
+  }
+  .A-proposal-title {
+    font-size: 25px;
+  }
+}
+.available-proposal-activebtn {
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: #7564d4;
+  border: 0;
+  color: white;
+}

@@ -1,0 +1,472 @@
+.main-your-dao {
+  font-family: "MuseoModerno", sans-serif;
+  background-color: #fff;
+  height: 100vh;
+  position: absolute;
+  /* overflow: hidden; */
+  top: 0;
+  width: 100vw;
+  left: 0;
+}
+
+.your-language-daos-title-in-your-data{
+  text-align: center;
+}
+
+.proposal-header {
+  font-family: "MuseoModerno";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.proposal-info {
+  font-family: "MuseoModerno";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.your-dao-bg {
+  background: linear-gradient(256.61deg, #ffa046 -0.6%, #e87825 100%);
+  position: absolute;
+  height: auto;
+  width: 100vw;
+  top: 0;
+  z-index: 1;
+}
+
+.maindaoBg {
+  background: linear-gradient(256.61deg, #ffa046 -0.6%, #e87825 100%);
+  position: absolute;
+  height: auto;
+  width: 100vw;
+  top: 0;
+  z-index: 1;
+}
+.all-datadao-main-div {
+  width: 100%;
+  margin: 5% auto;
+  /* max-width: 1240px; */
+  z-index: 100;
+  position: absolute;
+}
+
+.all-datadao-div {
+  margin: 0 auto;
+}
+.all-datadao-title {
+  text-align: center;
+  padding: 5px;
+  font-weight: 500;
+  font-size: 4rem;
+  color: #fff;
+  /* letter-spacing: 0.04em; */
+}
+
+.all-datadao-subtext {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+.all-datadao-section1 {
+  padding: 10px;
+}
+.datadao-address {
+  /* background-color: aqua; */
+  /* width: 150px; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: max-content;
+  padding: 5px 0px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fefcfc;
+  /* border: 1px solid #4c2ffd; */
+  /* padding: 10px; */
+}
+.all-datadao-section2 {
+  width: auto;
+  margin: 0 auto;
+  margin-left: 6vw;
+}
+.dataDAo-details {
+  width: 20%;
+}
+
+.daos-all-button-over-here{
+  color: white;
+  font-family: MuseoModerno;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 26px;
+  letter-spacing: 0.015em;
+}
+
+.jbfuvbvrvrv{
+  align-items: center;
+  display: flex;
+}
+
+.tab-dashboard-in-the-your-data-dao{
+ background: #FFFFFF6B;
+  max-width: fit-content;
+  border-radius: 50px;
+  padding: 10px;
+  font-size: larger;
+  /* margin-left: 300px; */
+  /* align-items: center; */
+}
+
+button.view-more-all-dao {
+  display: flex;
+  margin: 10px;
+  padding: 10px 30px;
+  background: #ffffff;
+  border-radius: 50px;
+  color: #fefcfc;
+  border: none;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 131.02%;
+  text-align: center;
+  letter-spacing: 0.055em;
+  text-transform: capitalize;
+  color: #ff6054;
+  width: 180px;
+}
+
+.view-more-btn {
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  margin-top: -44px;
+  margin-left: -40px;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.your-dao-bg-images {
+  width: 100vw;
+  z-index: 50;
+}
+
+.leftCurvedLinesDao {
+  position: absolute;
+  z-index: 21;
+  bottom: 0;
+  left: 0;
+}
+
+.topCurvedLinesDao {
+  position: absolute;
+  z-index: -22;
+  top: 0;
+  left: 0;
+}
+
+.mainYourDaoBg {
+  z-index: 20;
+  top: 0;
+  left: 0;
+  position: absolute;
+  margin-right: 10%;
+  width: 100%;
+}
+.datadao-popup {
+  height: 40vh;
+  width: 40vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-backdrop-filter: blur(30px);
+  backdrop-filter: blur(30px);
+  background-color: rgba(255, 255, 255, 0.64);
+  opacity: 0.9;
+  padding: 1rem;
+  border: 1px solid #ffffff;
+  z-index: 99;
+  border-radius: 85px;
+}
+.datadao-join-popup {
+  width: 40vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-backdrop-filter: blur(30px);
+  backdrop-filter: blur(30px);
+  background-color: rgba(255, 255, 255, 0.64);
+  opacity: 0.9;
+  padding: 1rem;
+  border: 1px solid #ffffff;
+  z-index: 99;
+  border-radius: 85px;
+}
+
+.datadao-join-popmain{
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  gap: 30px;
+}
+.datadao-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(254, 127, 72, 0.16);
+  -webkit-backdrop-filter: blur(4.5px);
+  backdrop-filter: blur(4.5px);
+  z-index: 98;
+}
+
+.datadao-joinheader {
+  font-family: "MuseoModerno", sans-serif;
+  font-size: 48px;
+  font-weight: 600;
+  text-align: center;
+  margin: 10px;
+  margin-top: 50px;
+  color: #ff923e;
+}
+
+.datadao-join-subheader{
+  font-size: 0.9rem;
+  color:#ff5f00;
+  font-weight: 400;
+}
+
+.datadao-popmain {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  gap: 50px;
+}
+
+.datadao-joininput {
+  padding: 10px;
+  margin-right: 20px;
+  background-color: #fefcfc;
+  box-shadow: none;
+  font-family: "MuseoModerno";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  border: none;
+  background: #ffffff;
+  color: #000000;
+  transition: box-shadow 300ms cubic-bezier(0.55, 0, 0.1, 1) 0ms;
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.09),
+    rgba(255, 255, 255, 0.09)
+  );
+  border-radius: 10px;
+}
+
+#datadao-joinbtn {
+  margin: 0 auto;
+}
+
+.rounded-view-data-dao-button {
+  padding: 0.7rem 1rem;
+  border-radius: 50px;
+  background-color: #fff;
+  color: #ff6054;
+  border: none;
+  width: 150px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.view-button-text {
+  margin-right: 20%;
+}
+.rounded-join-data-dao-button {
+  padding: 0.7rem 1rem;
+  border-radius: 50px;
+  color: #fff;
+  background-color: #ff5f00;
+  border: none;
+  width: 150px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.rounded-join-data-dao-button-disabled {
+  padding: 0.7rem 1rem;
+  border-radius: 50px;
+  color: #fff;
+  background-color: #ff5f00;
+  border: none;
+  width: 150px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0.5;
+  cursor: not-allowed !important;
+}
+
+.rounded-view-data-dao-button:hover,
+.view-circle:hover {
+  background-color: #ff5f00;
+  color: #fff;
+}
+.rounded-join-data-dao-button:hover,
+.join-circle:hover {
+  color: #ff5f00;
+  background-color: #fff;
+}
+
+.view-circle {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50%;
+  background-color: #ff5f00;
+  transition: background-color 0.3s ease;
+}
+.join-circle {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50%;
+  background-color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.fa-arrow-right {
+  font-size: 1rem;
+}
+.view-arrow {
+  color: #fff;
+}
+.join-arrow {
+  color: #ff5f00 !important;
+}
+
+.button-to-join {
+  text-align: left;
+}
+
+.alldao-load {
+  height: 100px;
+  margin-left: 220px;
+}
+
+.css-1gsv261 {
+  border: none !important;
+}
+
+.css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
+  background: #FF5F00 !important;
+  color: white !important;
+  border-radius: 47px;
+  font-family: "MuseoModerno";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  box-shadow: 0px 1px 10px 0px #00000040;
+  /* margin: 5px; */
+}
+
+.css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
+  color: white !important;
+  background: #FFFFFF6B;
+  border-radius: 50px;
+  font-family: "MuseoModerno" !important;
+  font-style: normal !important;
+  font-weight: 500 !important;
+  font-size: 16px !important;
+  /* margin-top: 20px !important; */
+  /* padding-left: 10px; */
+  /* padding-right: 10px; */
+  padding: 40px;
+}
+
+.css-1aquho2-MuiTabs-indicator {
+  background-color: transparent !important;
+}
+
+.css-heg063-MuiTabs-flexContainer {
+  margin-left: 35vw;
+  background: #FFFFFF6B;
+  max-width:fit-content;
+  padding: 10px;
+  border-radius: 50px;
+  
+
+}
+
+.your-Dao-table-data {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 2fr));
+}
+
+.proposal-details {
+  margin: 20px;
+}
+
+@media screen and (min-width: 2561px) {
+}
+
+@media screen and (min-width: 2000px) and (max-width: 2560px) {
+}
+
+@media screen and (min-width: 1600px) and (max-width: 1999px) {
+}
+
+@media screen and (min-width: 1440px) and (max-width: 1599px) {
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+  .your-dao-bg {
+    min-height: fit-content;
+    padding-bottom: 50px;
+    width: 115vw !important;
+  }
+
+  .all-datadao-section2 {
+    margin-left: 0;
+  }
+
+  .topCurvedLinesDao {
+    width: 100%;
+  }
+
+  .leftCurvedLinesDao {
+    bottom: -80%;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+}
+
+@media screen and (max-width: 767px) {
+  .all-datadao-title {
+    font-size: 20px;
+  }
+}
+.your-dao-bg {
+  background: linear-gradient(256.61deg, #ffa046 -0.6%, #e87825 100%);
+  position: absolute;
+  height: 180vh;
+  width: 100vw;
+  top: 0;
+  z-index: 1;
+}

@@ -1,0 +1,119 @@
+.pre-exisitng-dao-div{
+    margin-top: 100px;
+}
+
+.main-div-of-existing-dao{
+    /* border: 1px solid white; */
+}
+
+.div-for-heading-existing-dao{
+    text-align: center;
+}
+
+.i-heading-existing-dao{
+    color: white;
+    font-family: MuseoModerno;
+    font-size: 55px;
+    font-weight: 500;
+    line-height: 84px;
+    letter-spacing: 0.04em;
+}
+
+.ii-heading-existing-dao{
+    color: white;
+    font-family: MuseoModerno;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 37px;
+    letter-spacing: 0.015em;
+}
+
+.div-for-existing-dao-card{
+    margin:  50px 100px;
+    display: flex;
+    /* border: 1px solid white; */
+}
+
+.samhita-address-div{
+    font-weight: bolder;
+    margin-left: 20px;
+    color: white;
+    width: 200px; /* Set the width of your div */
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide any overflowing content */
+  text-overflow: ellipsis;
+}
+
+.div-to-flex-the-view-and-join-button-in-the-create-dao-pre{
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0px;
+}
+
+.div-for-other-language-dao-card{
+    display: flex;
+    gap: 40px;
+    margin-left: 40px;
+}
+
+.dao-card-of-the-create-dao {
+    padding-bottom: 1px;
+    width: 380px;
+    height: revert;
+    border-radius: 41px;
+    background-color:  #FFA046;
+    /* background-color: #FFA046; */
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    flex: 1; /* Distribute available space evenly among cards */
+  }
+
+  .pay-token-btton-div button{
+    width: 158px;
+    height: 46px;
+    border-radius: 47px;
+    background: #7564D4;
+    color: white;
+    border-style: none;
+  }
+
+  
+  .pay-token-btton-div{
+    margin-top: 50px;
+    text-align: center;
+
+  }
+
+  .div-for-input-in-popup input{
+    
+    width: 482px;
+    height: 53px;
+    border-radius: 11px;
+    
+  }
+  .div-for-input-in-popup label{
+    font-family: MuseoModerno;
+font-size: 48px;
+font-weight: 500;
+line-height: 63px;
+letter-spacing: 0.04em;
+text-align: left;
+
+  }
+  .div-for-input-in-popup{
+    text-align: center;
+    /* background-color: brown; */
+  }
+
+  .div-for-cancel-icons{
+    display: flex;
+    flex-direction: row-reverse;
+    /* background-color: aqua; */
+    /* float: left; */
+  }
+
+  .div-for-cancel-icons button{
+    background-color: transparent;
+    border-style: none;
+    padding: 5px;
+    font-size: 50px;
+  }

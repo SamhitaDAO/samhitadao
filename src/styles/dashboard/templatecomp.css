@@ -1,0 +1,52 @@
+.inner-div-of-template-comp{
+    padding: 30px 70px;
+    margin-top: -20px;
+    width: fit-content;
+    height: 569px;
+    border-radius: 50px;
+    background: #FFFFFF6B;
+}
+
+.heading-div-of-template-comp{
+    text-align: center;
+    font-family: MuseoModerno;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 63px;
+    letter-spacing: 0.04em;
+    color: #FF5731;
+}
+
+.table-div-of-template-comp{
+    display: flex;
+    justify-content: center;
+}
+
+.table-div-of-template-comp table{
+    text-align: center;
+}
+
+.table-div-of-template-comp table tbody{
+    font-size: 20px;
+    color: white;
+}
+
+.table-header-proposal-comp th{
+    margin: 0px 10px;
+}
+
+.table-header-proposal-comp {
+    font-size: 25px;
+    width: 800px;
+    height: 58px;
+    background: #FF5F009E;
+    color: white; /* Optional: Set text color to white for better visibility */
+  }
+  
+  .table-header-proposal-comp:first-child {
+    border-radius: 13px 0px 0px 13px;
+  }
+
+  .table-header-proposal-comp:last-child {
+    border-radius: 0px 13px 13px 0px;
+  }

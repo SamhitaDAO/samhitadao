@@ -1,0 +1,112 @@
+.outer-div-of-data-scrape-div{
+    margin: 100px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.user-form-div-data-scrape p{
+    text-align: center;
+    padding: 0px 20px;
+}
+
+.input-form-div-datascrape input{
+    border-radius: 10px;
+    height: 30px;    
+    width: 100%;
+    border-style: none;
+    margin-bottom: 10px;
+}
+
+.all-inputs-of-data-scrape-form{
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    font-weight: 500;
+}
+.user-form-div-data-scrape{
+    padding: 20px;
+    z-index: 2;
+    width: 991px;
+    height: max-content;
+    border-radius: 57px;
+    border: 1px solid #FFCB2A;
+    background-color: #f59f2d;
+    color: white;
+}
+
+.div-to-submit-cid-and-data-scrape{
+    padding: 30px 20px;
+    z-index: -2;
+    width: 991px;
+    height: max-content;
+    border-radius: 57px;
+    border: 1px solid #FFCB2A;
+    background-color: #f59f2d;
+    color: white;
+    margin-top: 15px;
+    margin-bottom: 100px;
+}
+.main-div-of-the-data-scrape{
+    padding: 20px;
+    z-index: 2;
+    margin-top: 10px;
+    width: 991px;
+    height: max-content;
+    border-radius: 57px;
+    border: 1px solid #FFCB2A;
+    background-color: #f59f2d;
+    color: white;
+}
+
+.div-for-all-title{
+    text-align: center;
+    justify-content: center;
+}
+
+.data-scrape-title-heading-i{
+    font-size: 36px;
+    margin-bottom: 0px;
+    font-family: MuseoModerno;
+    font-weight: 500;
+    line-height: 47px;
+    letter-spacing: 0.04em;
+
+}
+.data-scrape-title-heading-ii{
+    margin-top: -5px;
+    margin-bottom: 0px;
+    font-size: 28px;
+    font-family: MuseoModerno;
+    font-weight: 400;
+    line-height: 37px;
+    letter-spacing: 0.015em;
+
+}
+.data-scrape-title-heading-iii{
+    margin-bottom: 0px;
+    font-size: 15px;
+    font-family: MuseoModerno;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.015em;
+
+}
+
+.submit-button-for-datascrape{
+    display: flex;
+    justify-content: center;
+    margin: 10px 0px;
+}
+.submit-button-for-datascrape button{
+    border-style: none;
+    background: #744CA0;
+    box-shadow: 0px 1px 10px 0px #00000040;
+    width: 138px;
+    height: 40px;
+    border-radius: 16px;
+    color: white;
+    font-size: 20px;
+    padding: 5px;
+}

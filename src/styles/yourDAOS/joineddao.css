@@ -1,0 +1,118 @@
+.main-div-of-the-joined-dao{
+    margin: 50px;
+    padding: 50px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.card-of-the-joined-dao{
+    width: 285px;
+    height: 375px;
+    border-radius: 41px;
+    background-color:  #FFA046;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;  
+    /* margin-left: 50px; */
+}
+
+.card-of-the-joined-dao:hover{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.card-headerof-the-joined-dao{
+    height: 20%;
+    background-color: white;
+    color: blue;    
+    text-align: center;
+    padding: 20px;
+    border-radius: 41px 41px 0px 0px;
+}
+
+.card-body-of-the-joined-dao{
+    height: 54%;
+    margin: 20px;
+    color: white;
+    font-family: MuseoModerno;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: 0.015em;
+}
+
+.div-for-button-of-the-joined-dao{
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    margin: 0px 40px;
+    margin-bottom: 40px;
+}
+
+.view-button-of-the-joined-dao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 138px;
+    height: 44px;
+    border-radius: 59px;
+    font: MuseoModerno;
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 14px;
+    letter-spacing: 0.055em;
+    text-align: center;
+    color: rgba(255, 96, 84, 1);
+    border: none;
+}
+
+.view-button-of-the-joined-dao:hover{
+    background-color: rgba(255, 96, 84, 1);
+    color: white;
+}
+
+.join-button-of-the-joined-dao{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font: MuseoModerno;
+    width: 138px;
+    height: 44px;
+    border-radius: 59px;
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 14px;
+    letter-spacing: 0.055em;
+    text-align: center;
+    background-color: rgba(255, 96, 84, 1);
+    border: none;
+    color: white;
+}
+
+.join-button-of-the-joined-dao:hover{
+    color: rgba(255, 96, 84, 1);
+    background-color: white;
+}
+
+.right-side-icon-of-button-in-the-joined-dao-join{
+    margin-left: 15px;
+    background-color: white;
+    color: rgba(255, 96, 84, 1);
+    font-size: 15px;
+    border-radius: 155px;
+    padding: 5px;
+}
+
+.right-side-icon-of-button-in-the-joined-dao-for-view-more{
+    margin-left: 15px;
+    color: white;
+    background-color: rgba(255, 96, 84, 1);
+    font-size: 15px;
+    border-radius: 155px;
+    padding: 5px;
+}

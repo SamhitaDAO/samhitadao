@@ -1,0 +1,34 @@
+.card-testing{
+    color: white;
+    font-size: 15px;
+}
+
+.api-testing-container{
+    padding: 5px 10px;
+}
+
+.div-for-api-testing-inputs{
+    margin: 0px 40px;
+}
+
+.div-for-api-testing-inputs input{
+    margin: 5px 0px;
+    background-color: #ffffff9c;
+    border-radius: 7px;
+    border-color: white;
+}
+
+ .test-button-testing-api{
+    display: flex;
+    justify-content: center;
+    margin-top:25px;
+}
+
+.test-button-testing-api button{
+    width: 150px;
+    height: 40px;
+    border-radius: 47px;
+    color: white;   
+    background: #FF5731;
+    border-style: none;
+}

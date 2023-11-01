@@ -1,0 +1,140 @@
+/* Apilists.css */
+/* Add this import at the beginning of your CSS file */
+@import "~font-awesome/css/font-awesome.css";
+
+.api-card {
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    /* padding: 20px; */
+    /* margin: 0 auto; */
+    width: 300px;
+    height: 400px;
+    margin-left: 20px;
+    flex-shrink: 0;
+    border-radius: 56px;
+    background-color: #FFA046;
+    backdrop-filter: blur(107px);
+  }
+
+  .div-to-flex-list-and-test{
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+  }
+  
+  .api-card-header {
+    font-size: 24px;
+    margin-bottom: 25px;
+    justify-content: center;
+    display: flex;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 56px 56px 0px 0px;
+    color: #7564D4;
+    font-family: MuseoModerno;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 131.023%; /* 31.445px */
+    letter-spacing: 0.36px;
+  }
+
+  .api-list-container {
+    max-height: 200px; /* Set a maximum height for the list container */
+    overflow-y: auto; /* Add a scrollbar to the list container */
+    padding: 10px; /* Add padding to create space between the list and card edges */
+    margin: 20px;
+    width: 250px;
+    color: #fff;
+  }
+  
+  .api-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-size: 10px;
+  }
+  
+  .api-list li {
+    /* margin-bottom: 8px; */
+    border-bottom: 1px solid white; /* Add a white line separator between API items */
+    /* padding-bottom: 8px; */
+  }
+  
+  /* Style for the list items (optional) */
+  .api-list li::before {
+    content: "•"; /* Bullet point style */
+    margin-right: 8px;
+    color: #007BFF; /* Bullet point color */
+  }
+
+  .search-filter-div{
+    display: flex;
+    justify-content: center;
+  }
+
+ /* Apilists.css */
+.search-container {
+    position: relative;
+    display: flex;
+  }
+  
+  .search-input {
+    padding-left: 35px; /* Adjust the padding as needed to make room for the icon */
+    background-image: url('../../assets/search-icon.png'); /* Replace with your search icon path */
+    background-repeat: no-repeat;
+    background-position: 8px center; /* Adjust the position as needed */
+    background-size: 20px 20px; /* Adjust the size of the search icon as needed */
+    border: 1px solid #ccc;
+    border-radius: 11px;
+    outline: none;
+    font-size: 15px;
+    width: 256px;
+    height: 50px;
+    flex-shrink: 0;
+  }
+  
+  .filter-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px; /* Adjust the right position as needed */
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 25px;
+  }
+
+  /* Apilists.css */
+/* Customize the scrollbar for webkit-based browsers (e.g., Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 1px; /* Width of the scrollbar */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Background color of the scrollbar track */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #e05f08; /* Color of the scrollbar thumb (the draggable part) */
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color of the scrollbar thumb on hover */
+  }
+  
+  /* Customize the scrollbar for Firefox */
+  /* Note: Firefox has limited scrollbar customization options */
+  /* You can only change the color of the scrollbar thumb */
+  * {
+    scrollbar-color: #888 #f1f1f1;
+  }
+  
+  /* Customize the scrollbar for Microsoft Edge and IE (not recommended for modern browsers) */
+  /* Note: IE and Edge have limited scrollbar customization options */
+  /* You can only change the color of the scrollbar */
+  /* This rule may not work in some versions of IE and Edge */
+  * {
+    scrollbar-face-color: #888; /* Color of the scrollbar thumb */
+    scrollbar-track-color: #f1f1f1; /* Background color of the scrollbar track */
+  }
+  

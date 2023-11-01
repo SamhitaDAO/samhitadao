@@ -1,0 +1,183 @@
+.div-for-title-proposal-comp-i{
+    font-family: MuseoModerno;
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 63px;
+    letter-spacing: 0.04em;
+    text-align: left;
+    color: white;
+}
+
+.div-for-drop-down-proposal-comp{
+    margin-left: -17px;
+    margin-top: 30px;
+    display: flex;
+    gap: 30px;
+}
+
+.dropdown-for-proposal-comp select {
+    width: 158px;
+    height: 46px;
+    border-radius: 11px;
+    color: #FF5F00;
+    font-family: MuseoModerno;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 18px;
+    letter-spacing: 0.04em;
+    text-align: left;
+    border-style: none;
+    padding-left: 20px;
+}
+
+.dropdown-for-proposal-comp{
+    width: 158px;
+    height: 46px;
+    border-radius: 11px;
+    color: #FF5F00;
+    font-family: MuseoModerno;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 18px;
+    letter-spacing: 0.04em;
+    text-align: left;
+    border-style: none;
+    padding-left: 20px;
+}
+
+.date-picker-proposal-comp{
+    margin-left: 20px;
+}
+
+.div-for-title-proposal-comp-ii{
+    margin-top: 30px;
+    font-family: MuseoModerno;
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 63px;
+    letter-spacing: 0.04em;
+    text-align: left;
+    color: white;
+}
+
+.cards-of-all-active-proposal-in-proposal-comp label{
+    font-weight: bolder;
+    color: white;
+}
+
+.cards-of-all-active-proposal-in-proposal-comp{
+    display: flex;
+    gap: 40px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.proposal-card-in-proposal-comp{
+    width: 446px;
+    height: max-content;
+    border-radius: 39px;
+    border: 1px solid white;
+    background: #FFA046;
+}
+
+.heading-for-proposal-comp-card{
+    width: 446px;
+    height: 57px;
+    background-color: white;
+    color: blue;
+    border-radius: 41px 41px 0px 0px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: MuseoModerno;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 31px;
+    letter-spacing: 0.015em;
+}
+
+.description-for-proposal-comp-card{
+    width: 385px;
+    /* height: 42px; */
+    color: white;
+    font-family: MuseoModerno;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: 0.015em;
+    text-align: left;
+    padding: 10px;
+}
+
+.view-file-button-for-proposal-card{
+    width: 121px;
+    height: 29px;
+    border-radius: 59px;
+    border: 1px;
+    background: linear-gradient(0deg, #FFFFFF, #FFFFFF),linear-gradient(0deg, rgba(255, 255, 255, 0.33), rgba(255, 255, 255, 0.33));
+    border: 1px solid #FFFFFF;
+    font-family: Inter;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 13px;
+    letter-spacing: 0.055em;
+    text-align: center;
+    color: #FF5F00;
+}
+
+.div-to-center-card-data-proposal-comp{
+    padding: 15px;
+}
+
+.start-end-for-proposal-comp-card{
+    /* text-align: center; */
+    margin: 10px 0px ;
+    color: white;
+}
+
+.voting-button-for-proposal-comp-card{
+    display: flex;
+    justify-content: space-around;
+}
+
+.upvote-button-for-proposal-comp{
+    width: 138px;
+    height: 44px;
+    border-radius: 59px;
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 14px;
+    letter-spacing: 0.055em;
+    text-align: center;
+    color: #FF6054;
+    border-style: none;
+}
+.upvote-button-for-proposal-comp:hover{
+    background-color: #FF6054;
+    border-style: none;
+    color: white;
+}
+
+.downvote-button-for-proposal-comp{
+    width: 138px;
+    height: 44px;
+    border-radius: 59px;
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 14px;
+    letter-spacing: 0.055em;
+    text-align: center;
+    background-color: #FF6054;
+    border-style: none;
+    color: white;
+}
+
+.downvote-button-for-proposal-comp:hover{
+    color: #FF6054;
+    border-style: none;
+    background-color: white;
+}

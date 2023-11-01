@@ -1,0 +1,100 @@
+.main-container-of-the-create-dao{
+    margin: 50px;
+    padding: 50px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+.dao-card-of-the-create-dao{
+    padding-bottom: 1px;
+    width: 275px;
+    height: 350px;
+    border-radius: 41px;
+    background-color:  #FFA046;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;  
+}
+
+.header-of-the-dao-card-of-the-create-dao{
+    height: 20%;
+    background-color: white;
+    color: blue;
+    text-align: center;
+    padding: 20px;
+    border-radius: 41px 41px 0px 0px;
+}
+
+.description-of-the-dao-card-of-the-create-dao{
+    height: 45%;
+    margin: 40px 20px;
+    color: white;
+    font-family: MuseoModerno;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: 0.015em;
+}
+
+.dao-card-buttons-of-the-create-dao{
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    margin: 0px 40px;
+    margin-bottom: 40px;
+}
+
+.join-button-of-the-create-dao{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font: MuseoModerno;
+    width: 138px;
+    height: 44px;
+    border-radius: 59px;
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 14px;
+    letter-spacing: 0.055em;
+    text-align: center;
+    background-color: rgba(255, 96, 84, 1);
+    border: none;
+    color: white;
+}
+
+.join-button-of-the-create-dao:hover{
+    color: rgba(255, 96, 84, 1);
+    background-color: white;
+}
+
+.view-more-button-of-the-create-dao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 138px;
+    height: 44px;
+    border-radius: 59px;
+    font: MuseoModerno;
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 14px;
+    letter-spacing: 0.055em;
+    text-align: center;
+    color: rgba(255, 96, 84, 1);
+    border: none;
+}
+
+.view-more-button-of-the-create-dao:hover{
+    background-color: rgba(255, 96, 84, 1);
+    color: white;
+}
+
+.div-to-flex-the-view-and-join-button-in-the-create-dao{
+    display: flex;
+    justify-content: space-between;
+}

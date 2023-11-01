@@ -1,0 +1,275 @@
+.create-proposal-main-div {
+  width: 100%;
+  max-width: 1240px;
+  margin: 10px auto;
+  border-radius: 20px;
+  /* // background: #fefcfc; */
+
+  /* background-color: bisque; */
+}
+
+.create-proposal-parent-div {
+  height: fit-content;
+  border-radius: 20px;
+  /* // background: #fefcfc; */
+  background: #ffa046;
+  color: rgb(255, 255, 255);
+  transition: box-shadow 300ms cubic-bezier(0.55, 0, 0.1, 1) 0ms;
+  box-shadow: none;
+  border: 1px solid rgb(45, 45, 45);
+  max-width: 700px;
+  padding: 10px 30px 10px 30px !important;
+}
+.create-proposal-div {
+  width: 100%;
+  /* text-align: center; */
+  margin: 0 auto;
+  /* margin-top: 20px; */
+}
+.create-proposal-title {
+  /* padding: 10px; */
+  font-family: "MuseoModerno";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  color: #fff;
+  text-align: center;
+}
+.create-proposal-desc {
+  font-family: "MuseoModerno";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 131.02%;
+  letter-spacing: 0.015em;
+  color: #ffffff;
+  width: 100%;
+  text-align: center;
+}
+.create-proposal-label {
+  font-family: "MuseoModerno";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 131.02%;
+  letter-spacing: 0.015em;
+  color: #ffffff;
+  padding: 0px 10px;
+  /* margin: 10px 0px; */
+  /* padding-bottom: 10px; */
+}
+button.uploadfile {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 131.02%;
+  text-align: center;
+  letter-spacing: 0.055em;
+  text-transform: capitalize;
+
+  color: #ff5f00;
+  margin-top: 10px;
+  padding: 10px;
+  box-shadow: none;
+  background: rgba(255, 255, 255, 0.33);
+  border: 1px solid #ffffff;
+  border-radius: 50px;
+}
+button.up-vote-btn {
+  border: none;
+  background: #ffffff;
+  padding: 10px;
+  width: 100%;
+  margin: 0px 20px;
+  box-shadow: none;
+  border-radius: 50px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 131.02%;
+  /* or 14px */
+
+  text-align: center;
+  letter-spacing: 0.055em;
+  text-transform: capitalize;
+
+  color: #ff6054;
+}
+
+button.down-vote-btn {
+  border: none;
+  background: #ff5f00;
+  padding: 10px;
+  width: 40%;
+  display: block;
+  margin: 0px 20px;
+  box-shadow: none;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 131.02%;
+  text-align: center;
+  letter-spacing: 0.055em;
+  text-transform: capitalize;
+  color: #f8f8f8;
+  border-radius: 50px;
+}
+.proposal-date {
+  /* min-height: 2.5rem; */
+  font-size: 1rem;
+  padding: 10px;
+  border-color: rgba(0, 0, 0, 0.23);
+  border-radius: 5px;
+  border-width: 1px;
+  text-align: center;
+  border-radius: 10px;
+  /* min-width: 50%; */
+  width: 150px;
+  height: 41px;
+  margin: 10px;
+  border: none;
+  background-color: #fff;
+  color: rgb(255, 255, 255);
+  transition: box-shadow 300ms cubic-bezier(0.55, 0, 0.1, 1) 0ms;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px,
+    rgba(0, 0, 0, 0.23) 0px 0px 3px -2px, rgba(0, 0, 0, 0.17) 0px 0px 25px;
+}
+input:focus {
+  outline: #0914d9;
+}
+.proposal-date1 {
+  margin-left: 10px;
+}
+.proposal-margin-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px;
+  margin: 10px 0px;
+  border: none;
+  border-radius: 10px;
+  background-color: white;
+  color: black;
+  transition: box-shadow 300ms cubic-bezier(0.55, 0, 0.1, 1) 0ms;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px,
+    rgba(0, 0, 0, 0.23) 0px 0px 3px -2px, rgba(0, 0, 0, 0.17) 0px 0px 25px;
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.09),
+    rgba(255, 255, 255, 0.09)
+  );
+}
+.proposal-margin-div img {
+  width: 32px;
+  height: 32px;
+}
+.desc-height {
+  width: 90%;
+  height: 10vh;
+}
+.textfields-width {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  width: 100%;
+}
+.textfields-width input {
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  background-color: white;
+  color: black;
+  transition: box-shadow 300ms cubic-bezier(0.55, 0, 0.1, 1) 0ms;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px,
+    rgba(0, 0, 0, 0.23) 0px 0px 3px -2px, rgba(0, 0, 0, 0.17) 0px 0px 25px;
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.09),
+    rgba(255, 255, 255, 0.09)
+  );
+}
+.textfields-width textarea {
+  width: 100%;
+  resize: none;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: white;
+  color: black;
+  transition: box-shadow 300ms cubic-bezier(0.55, 0, 0.1, 1) 0ms;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px,
+    rgba(0, 0, 0, 0.23) 0px 0px 3px -2px, rgba(0, 0, 0, 0.17) 0px 0px 25px;
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.09),
+    rgba(255, 255, 255, 0.09)
+  );
+}
+
+.temp-select {
+  width: 100%;
+  resize: none;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: white;
+  color: black;
+  transition: box-shadow 300ms cubic-bezier(0.55, 0, 0.1, 1) 0ms;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px,
+    rgba(0, 0, 0, 0.23) 0px 0px 3px -2px, rgba(0, 0, 0, 0.17) 0px 0px 25px;
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.09),
+    rgba(255, 255, 255, 0.09)
+  );
+}
+
+.create-proposal-uploadfile {
+  width: 80px;
+  margin-left: 150px;
+}
+.create-proposal-btn {
+  width: 90%;
+}
+.date-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  font-family: "MuseoModerno";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  margin: 0 auto;
+}
+
+.start-end-div {
+  /* margin: 20px 0px; */
+}
+
+@media screen and (min-width: 2561px) {
+}
+
+@media screen and (min-width: 2000px) and (max-width: 2560px) {
+}
+
+@media screen and (min-width: 1600px) and (max-width: 1999px) {
+}
+
+@media screen and (min-width: 1440px) and (max-width: 1599px) {
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+}
+
+@media screen and (max-width: 767px) {
+  .create-proposal-main-div {
+    width: 100%;
+    max-width: 300px;
+    margin: 10px auto;
+    border-radius: 20px;
+  }
+}

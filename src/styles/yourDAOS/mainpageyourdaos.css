@@ -1,0 +1,81 @@
+.main-div-for-your-dao-nav-bar{
+    margin-top: 100px;
+}
+
+.main-heading-of-the-your-daos{
+    text-align: center;
+}
+
+.title-of-the-your-dao-page-i{
+    font-family: MuseoModerno;
+    font-size: 40px;
+    font-weight:900;
+    line-height: 52px;
+    letter-spacing: 0.04em;
+    color: #F8F8F8;
+    margin: 10px;
+}
+
+.title-of-the-your-dao-page-ii{
+    font-family: MuseoModerno;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 26px;
+    letter-spacing: 0.015em;
+    color: #FFFFFF;
+    margin-bottom: 30px;
+}
+
+.div-to-give-white-bg-to-nav-bar-of-your-dao{
+    background-color: #FFFFFF6B;
+    width: 500px;
+    height: 65px;
+    border-radius: 50px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.button-of-your-daos{
+    margin: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #ffffff00;
+    border: none;
+    color: white;
+    font-family: MuseoModerno;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 26px;
+    letter-spacing: 0.015em;
+}
+
+.button-of-your-daos:focus{
+    background-color: #FF5F00;
+    border-radius: 47px;
+    color: #F8F8F8;
+    box-shadow: 0px 1px 10px 0px #00000040;
+}
+
+
+/* .button-of-your-daos-select{ */
+.button-of-your-daos button::selected{
+    padding: 15px;
+    border-style: none;
+    background-color: #FF5F00;
+    border-radius: 47px;
+    color: #F8F8F8;
+    box-shadow: 0px 1px 10px 0px #00000040;
+}
+
+.div-for-your-dao-nav-bar{
+    /* margin-top: 40px; */
+    display: flex;
+    justify-content: center;
+}
+
+.component-container-to-showcase-the-your-daos{
+    margin-top: -50px;
+}
+
+

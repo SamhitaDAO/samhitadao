@@ -1,0 +1,64 @@
+.main-page-of-the-detail-dao{
+    margin: 300px;
+    /* border: 2px solid white; */
+}
+
+/* Style for the table container */
+.dao-table-of-the-detail-dao {
+    Width:603px;
+    Height:96px;
+    color:tomato;
+    /* border-collapse: collapse; */
+    /* border: 1px solid rgba(255, 87, 49, 1) */
+  }
+
+  .dao-table-of-the-detail-dao table{
+    width: 600px;
+    height: 100px;
+    border-spacing: 0px;
+    border-radius: 25px;
+  }
+  
+  /* Style for table headers */
+  .dao-table-of-the-detail-dao th {
+    background-color: white;
+    color: tomato;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid orangered;
+  }
+  
+  /* Style for table cells */
+  .dao-table-of-the-detail-dao td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid orangered;
+  }
+
+  .dao-table-of-the-detail-dao th:first-child {
+    border-top-left-radius: 20px;
+  }
+  
+  /* Apply top-right border radius to the last header */
+  .dao-table-of-the-detail-dao th:last-child {
+    border-top-right-radius: 20px;
+  }
+  
+  .dao-table-of-the-detail-dao td:first-child {
+    border-bottom-left-radius: 20px;
+  }
+  
+  /* Apply top-right border radius to the last header */
+  .dao-table-of-the-detail-dao td:last-child {
+    border-bottom-right-radius: 20px;
+  }
+  /* Style for even rows (optional) */
+  .dao-table-of-the-detail-dao tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  /* Style for odd rows (optional) */
+  .dao-table-of-the-detail-dao tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+  }
+  

@@ -1,0 +1,169 @@
+/* vietnamese */
+@font-face {
+  font-family: "MuseoModerno";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/museomoderno/v22/zrfi0HnU0_7wWdMrFcWqSEXlVAnrsAI.woff2)
+    format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1,
+    U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: "MuseoModerno";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/museomoderno/v22/zrfi0HnU0_7wWdMrFcWqSEXlVQnrsAI.woff2)
+    format("woff2");
+  unicode-range: U+0100-02AF, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF,
+    U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: "MuseoModerno";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/museomoderno/v22/zrfi0HnU0_7wWdMrFcWqSEXlWwnr.woff2)
+    format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: "MuseoModerno";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/museomoderno/v22/zrfi0HnU0_7wWdMrFcWqSEXlVAnrsAI.woff2)
+    format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1,
+    U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: "MuseoModerno";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/museomoderno/v22/zrfi0HnU0_7wWdMrFcWqSEXlVQnrsAI.woff2)
+    format("woff2");
+  unicode-range: U+0100-02AF, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF,
+    U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: "MuseoModerno";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/museomoderno/v22/zrfi0HnU0_7wWdMrFcWqSEXlWwnr.woff2)
+    format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("./assets/fonts/Inter-Regular.ttf");
+}
+
+body {
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #ffffff;
+  /* background-color: rgb(21, 22, 25); */
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+body::-webkit-scrollbar {
+  width: 5px;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #fefcfc;
+  outline: 1px solid #fefcfc;
+}
+
+
+/* ------------- Loading Styles -------------- */
+
+svg.button-spin-svg-pic {
+  height: 80%;
+  fill: #010101;
+  width:50%;
+}
+
+svg.animate-spin {
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* .gradient-1 {
+  position: absolute;
+  bottom: -30rem;
+  right: -35rem;
+  width: 80rem;
+  height: 80rem;
+  background: radial-gradient(#1e4dd89f, rgba(8, 19, 47, 0), transparent);
+  opacity: 0.5;
+  z-index: 1;
+}
+.gradient-2 {
+  position: absolute;
+  top: 3%;
+  left: -40rem;
+  width: 70rem;
+  height: 70rem;
+  background: radial-gradient(#4c2ffd, rgba(8, 19, 47, 0), transparent);
+  opacity: 0.15;
+  z-index: 1;
+}
+.gradient-3 {
+  position: absolute;
+  bottom: -40rem;
+  left: -35rem;
+  width: 80rem;
+  height: 80rem;
+  background: radial-gradient(#1e4dd89f, rgba(8, 19, 47, 0), transparent);
+  opacity: 0.5;
+  z-index: 1;
+}
+.gradient-4 {
+  position: absolute;
+  top: -40rem;
+  right: -35rem;
+  width: 80rem;
+  height: 80rem;
+  background: radial-gradient(#1e4dd89f, rgba(8, 19, 47, 0), transparent);
+  opacity: 0.5;
+  z-index: 1;
+} */

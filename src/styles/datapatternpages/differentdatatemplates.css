@@ -1,0 +1,293 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.table th,
+.table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+.table th {
+  background-color: #f5ab44;
+}
+
+.table tbody tr:hover {
+  background-color: #f1b3b3;
+}
+
+.table img,
+.table video,
+.table audio {
+  max-width: 100px;
+}
+
+.editable-text-area {
+  margin-left: 10px;
+  width: 100%;
+  min-height: 10px;
+  resize: vertical;
+  border-radius: 11px;
+}
+
+#dataForm {
+  margin-top: 20px;
+}
+
+#dataForm label {
+  display: block;
+  margin-top: 10px;
+}
+
+#dataForm input[type="file"] {
+  display: block;
+  margin-top: 5px;
+}
+
+#dataForm input[type="button"] {
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+#tableContainer {
+  margin-top: 20px;
+}
+
+h1 {
+  margin-top: 30px;
+}
+
+.form-to-submit-all-data{
+  margin-left: 155px;
+  margin-top: 20px;
+  max-width: max-content;
+  padding: 20px;
+  /* border: 1px solid #ccc; */
+  border-radius: 5px;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  /* background-color: #fff; */
+}
+
+#dataForm label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+#dataForm textarea,
+#dataForm input[type="file"] {
+  margin-left: 10px;
+  /* height: 50px; */
+  /* width: 100%; */
+  padding: 8px;
+  border: 2px solid #FF7050;
+  box-shadow: 0px 1px 10px 0px #00000040;
+  border-radius: 11px;
+  box-sizing: border-box;
+  margin-top: 5px;
+  resize: vertical;
+  width: 209px;
+  height: 46px;
+}
+
+#dataForm input[type="button"] {
+  margin-top: 10px;
+  cursor: pointer;
+  background-color: #f5ab44;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  width: 140px;
+  height: 43px;
+  border-radius: 47px;
+  box-shadow: 0px 1px 10px 0px #00000040;
+  border: 2px solid #FF7050;
+}
+
+.all-button-div{
+  margin-top: 30px;
+  display: flex;
+  text-align: center;
+  justify-content: space-evenly;
+  
+}
+
+#dataForm input[type="button"]:hover {
+  background-color: #FF7050;
+}
+
+/* Styling for the table container */
+#tableContainer {
+  margin-top: 20px;
+  max-width: 800px;
+}
+
+/* Additional styling for the h1 heading */
+h1 {
+  margin-top: 30px;
+  font-size: 24px;
+  color: #333;
+}
+
+/* CSS for Table */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.table th,
+.table td {
+  border: 1px;
+  padding: 10px;
+}
+
+.table th {
+  margin: 10px;
+  background-color: #FF7050;
+  color: #fff;
+  text-align: center;
+}
+
+.border-radius-th{
+  border-radius: 15px 0px 0px 15px;
+}
+
+.border-radius-right{
+  border-radius: 0px 15px  15px 0px;
+}
+/* CSS for Popup */
+/* Add this to your CSS file */
+.popup {
+  position: fixed;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px; /* Set the desired width */
+  height: 500px; /* Set the desired height */
+  padding: 30px;
+  background-color: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  overflow-y: scroll; /* Changed to scroll to always show the scrollbar */
+  scrollbar-width: thin; /* Add thin scrollbar */
+  scrollbar-color: yellow white; /* Set scrollbar colors */
+}
+
+.popup::-webkit-scrollbar {
+  width: 1px;
+}
+
+/* Set scrollbar track color */
+.popup::-webkit-scrollbar-track {
+  background-color: #f5ab44;
+}
+
+/* Set scrollbar thumb color */
+.popup::-webkit-scrollbar-thumb {
+  background-color: #f5ab44;
+  /* border: 2px solid white; Set border for thumb */
+}
+
+.glimpse-of-data-title {
+  margin-left: 150px;
+  color: #333;
+  font-family: MuseoModerno;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 47px;
+  letter-spacing: 0.04em;
+  width: 502px;
+  height: 47px;
+  text-align: center;
+}
+
+.popup h2 {
+  margin-top: 0;
+}
+
+.popup table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; /* Added to fix table cell widths */
+}
+
+.popup td {
+  height: 100px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.popup img,
+.popup audio,
+.popup video {
+  max-width: 100%; /* To make sure media fits within the cell */
+  height: 100%; /* Maintain aspect ratio */
+  display: block; /* To remove extra space below inline elements */
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.table-submit-btn{
+  width: 95px;
+  height: 45px;
+  border-radius: 47px;
+  background-color: #FF5F00;
+  color: white;
+  box-shadow: 0px 1px 10px 0px #00000040;
+  border: 1px solid #FF5F00;
+}
+
+.div-for-submit-button-in-popup{
+  justify-content: center;
+  display: flex;
+  position: sticky;
+  left: 45%;
+  bottom: 0%;
+}
+
+.close-icon {
+  position: sticky;
+  top: 3px;
+  right: 20px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 2.5em;
+  color: #333;
+}
+
+.text-input-field{
+  margin: 5px;
+  display: flex;
+}
+.audio-input-field{
+  margin: 15px;
+  display: flex;
+}
+.image-input-field{
+  display: flex;
+  /* margin-left: 20px; */
+  float: right;
+}
+.video-input-field{
+  margin-top: 15px;
+  display: flex;
+}
+.text-image-div-combine{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.audio-video-div-combine{
+  justify-content: space-between;
+  display: flex;
+}

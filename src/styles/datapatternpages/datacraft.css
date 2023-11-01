@@ -1,0 +1,257 @@
+.main-div-for-data-craft{
+    z-index: 2;
+    width: 1000px;
+    margin-top: 10px;
+    height: fit-content;
+    border-radius: 57px;
+    border: 1px solid #FFCB2A;
+    background-color: #f59f2d;
+    text-align: center;
+    color: white;
+    /* margin-top: 10%; */
+    margin-left: 270px;
+    padding: 20px;
+  }
+  
+  .form-input-div-data-craft{
+  /* margin:  10% ; */
+  padding: 20px;
+  z-index: 2;
+  width: 1100px;
+  height: max-content;
+  border-radius: 57px;
+  border: 1px solid #FFCB2A;
+  background-color: #f59f2d;
+  color: white;
+}
+
+.whole-div-of-data-craft{
+    /* margin: 100px 50px 0px 50px; */
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #f1f1f1;
+}
+
+.data-craft-main-heading-title{
+  font-family: MuseoModerno;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 47px;
+  letter-spacing: 0.04em;
+}
+
+.upload-file-btn-data-craft{
+    padding: 10px;
+    color: #F8F8F8;
+    border: 1px solid #FF7050;
+    width: fit-content;
+    height: 46px;
+    border-radius: 47px;
+    box-shadow: 0px 1px 10px 0px #00000040;
+    background-color: #f0ffff0d;
+    border-radius: 20px;
+    padding: 3px;
+    margin: 0;
+}
+
+.upload-your-file-button-data-craft{
+    margin-top: 25px;
+}
+
+.upload-icon {
+    
+    margin-right: 0.5rem; 
+    }
+
+
+.uploaded-data-container {
+    max-height: 400px; 
+    overflow: auto;
+    padding: 10px;
+    margin-top: 20px; 
+  }
+  
+  .uploaded-data-table {
+    width: 100%; 
+    overflow: auto; 
+  }
+
+.uploaded-data-table {
+    max-height: 300px; 
+    overflow-y: auto; 
+    scrollbar-width: thin; 
+    scrollbar-color: red transparent; 
+  }
+  
+  .uploaded-data-table::-webkit-scrollbar {
+    width: 1px; 
+  }
+  
+  .uploaded-data-table::-webkit-scrollbar-thumb {
+    background-color: rgb(225, 127, 46); 
+    border-radius: 5px;
+  }
+  
+  .uploaded-data-table::-webkit-scrollbar-track {
+    background-color: transparent; 
+  }
+  
+table{
+    border-collapse:separate;
+    border-spacing:0 15px;
+}
+  .even-row {
+  margin-bottom: 2px;
+    margin: 2px;
+    border-radius: 58px;
+    color: white;
+    background-color: #F57F00; 
+   } 
+  
+  .odd-row {
+  margin-bottom: 2px;
+    margin: 2px;
+    border-radius: 8px;
+    color: white;
+    background-color: #F57F00; 
+  }
+  
+  .data-row-of-the-table{
+    background-color: green;
+    color: white;
+  }
+  
+
+.uploaded-data-container {
+    max-height: 400px; 
+    overflow: auto; 
+    padding: 10px; 
+    margin-top: 20px;
+  }
+  
+  .uploaded-data-table {
+    width: 100%; 
+    overflow: auto; 
+  }
+  
+.uploaded-data-table {
+    max-height: 300px; 
+    overflow-y: auto; 
+    overflow-x: auto; 
+    scrollbar-width: thin;
+    scrollbar-color: rgb(235, 219, 182) transparent; 
+  }
+  
+  .uploaded-data-table::-webkit-scrollbar {
+    width: 6px; 
+    height: 6px;
+  }
+  
+  .uploaded-data-table::-webkit-scrollbar-thumb {
+    background-color: rgb(231, 123, 7); 
+    border-radius: 3px; 
+  }
+  
+  
+
+  .even-row {
+    margin-bottom: 2px; /* Add transparent space of 2px below each row */
+  }
+  
+  .odd-row {
+    /* Styles for odd rows */
+    /* background-color: #ffffff; White background */
+    margin-bottom: 2px; /* Add transparent space of 2px below each row */
+  }
+  .odd-row th, .even-row th{
+    margin: 10px 0px;
+    
+  }
+  .uploaded-data-table th,
+  .uploaded-data-table td {
+    /* Styles for table header and table data cells */
+    padding: 8px;
+    text-align: left;
+    /* border: 8px solid #f5ab44; */
+    /* margin-top: 5px; */
+}
+
+.uploaded-data-table td{
+
+  }
+
+.buttons-divs{
+    justify-content: space-between;
+    margin-top: 20px;
+    display: flex ;
+}
+
+.add-row-column-button-div{
+    margin-left: 40px;
+    display: flex;
+}
+
+.add-row-btn{
+    padding: 5px;
+    width: 141px;
+    height: 43px;
+    font-size: 15px;
+    border-radius: 47px;
+    border: 2px solid #FF7050;
+    box-shadow: 0px 1px 10px 0px #00000040;
+    background-color:#f5ab44;
+    color: white;
+  }
+  
+  .add-column-btn{
+    background-color:#f5ab44;
+    color: white;
+    margin-left: 8px;
+    padding: 5px;
+    border: 2px solid #FF7050;
+    width: 141px;
+    font-size: 15px;
+    height: 43px;
+    border-radius: 47px;
+    box-shadow: 0px 1px 10px 0px #00000040;
+}
+
+.submit-button-div{
+    margin-right: 40px;
+}
+
+.div-div-div{
+  display: flex;
+  justify-content: center;
+}
+
+.submit-btn{
+    background-color:#FF7050;
+    color: #f1f1f1;
+    width: fit-content;
+    padding: 8px;
+    height: 43px;
+    border-radius: 27px;
+    border: 1px solid red;
+    font-size: 15px;
+}
+
+.first-element-row{
+    border-radius: 15px 0px 0px 15px ;
+}
+
+.last-element-row{
+    border-radius: 0px 15px 15px 0px ;
+}
+
+.each-cell-of-table{
+    background-color: #F57F00;
+    border: none;
+    color: #f1f1f1;
+}   
+
+.table-to-upload-the-data{
+    padding: 10px;
+}

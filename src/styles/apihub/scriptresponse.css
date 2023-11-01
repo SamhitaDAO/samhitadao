@@ -1,0 +1,85 @@
+/* Add this CSS in your scriptresponse.css file */
+
+.api-card-header button {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .api-card-header button.active {
+    color: white;
+    border-radius: 26px 32.5px 26px 26px;
+    background: #FFA046;
+  }
+  
+  .api-card {
+  }
+  
+  .card-script-response {
+    font-size: 14px;
+    color: white;
+    max-height: 200px;
+    margin: 0px 20px 0px 0px;
+    margin:0px 20px;
+    /* border: 1px solid #ddd; */
+  }
+  
+  .code-snippet-is-here-in-the-script-div{
+    max-height: 290px;
+    overflow-y: auto;
+    overflow-x: auto;
+    padding: 0px 35px 0px 0px;
+    /* scrollbar-width: thin; For Firefox */
+    scrollbar-color: #e99519 #f0f0f0; /* Track and thumb color */
+  
+    /* Customize the scrollbar thumb */
+    &::-webkit-scrollbar {
+      width: 0.1px; /* Width of the scrollbar */
+      height: 10px; /* Height of the scrollbar for horizontal */
+    }
+  
+    &::-webkit-scrollbar-thumb {
+      background-color: #d07d11; /* Thumb color */
+      border-radius: 5px; /* Rounded corners */
+    }
+  
+    &::-webkit-scrollbar-track {
+      background-color: #f0f0f0; /* Track color */
+      border-radius: 5px; /* Rounded corners */
+      width: 1px;
+    }
+  
+    /* Customize the scrollbar thumb for horizontal scrolling */
+    &::-webkit-scrollbar-thumb:horizontal {
+      background-color: #e7970c; /* Thumb color */
+      width: 1px;
+    }
+  
+    /* Customize the scrollbar track for horizontal scrolling */
+    &::-webkit-scrollbar-track:horizontal {
+      background-color: #f0f0f0; /* Track color */
+      width: 1px;
+    }
+  }
+
+  .flex-to-combine-icon-and-heading-in-the-script{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .flex-to-combine-icon-and-heading-in-the-script button{
+    background-color: transparent;
+    color: white;
+    border-style: none;
+
+  }
+
+  .fas{
+    font-size: 25px;
+  }
+
+  .copied{
+    color: black;
+  }
