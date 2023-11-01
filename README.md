@@ -40,4 +40,4 @@ Follow these steps to install and run the Samhita DAO DApp:
 
 ## 🙋‍♂ Support
 
-:blue_heart: If you like this project, give it a :star: and share it
+If you like this project, give it a :star: and share it

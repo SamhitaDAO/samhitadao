@@ -1,28 +1,29 @@
 import React, { useState, useEffect } from "react";
-// import { BigNumber } from "bignumber.js";
 import { useNavigate } from "react-router-dom";
+import { useAccount } from "wagmi";
+import { ethers } from "ethers";
 import topCurvedLinesDAO from "../../assets/yourDaos/top-curved-lines-your-dao.svg";
 import "../../styles/existingdaos/preexistingdao.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faTimes } from "@fortawesome/free-solid-svg-icons";
-import { ethers } from "ethers";
 import SamhitaABI from "../../Samhita Artifacts/samhita.json";
 import SamhitaTokenABI from "../../Samhita Artifacts/samhitaToken.json";
 import { samhitacontract, samhitatokencontract } from "../../ContractAddresses";
-
-// const samhitacontract = "0x912E7159bd7dd108e524311bf66266519f7400fa";
-// const samhitatokencontract = "0xDC650B06E859051D42360913534D6589cc86a672";
+import languagedaoABI from "../../Samhita Artifacts/languagedao.json";
+import { languagedaofactory } from "../../ContractAddresses";
+import languagedaofactoryABI from "../../Samhita Artifacts/languagedaofactory.json";
 
 function PreExistingdaos({ props, onclose }) {
-  // const { isSamhitaMember, onMembershipStatusChange } = props;
   const [showPopup, setShowPopup] = useState(false);
   const [tokensToPurchase, setTokensToPurchase] = useState(0);
   const [txloading, settxloading] = useState(false);
+  const [allDataDaos, setDataDaos] = useState([]);
+  const { address } = useAccount();
+  const navigate = useNavigate();
+  const [selectedDao, setSelectedDao] = useState(null);
   const [membermsg, setmembermsg] = useState(false);
   const [hasjoinsamhita, sethasjoinsamhita] = useState(false);
   const [issamhitajoined, setissamhitajoined] = useState(false);
-  // const [hassamhitaJoined, setHassamhitaJoined] = useState(false);
-  // const [isSamhitaMember, setIsSamhitaMember] = useState(false);
 
   const togglePopup = () => {
     setShowPopup(!showPopup);
@@ -32,20 +33,59 @@ function PreExistingdaos({ props, onclose }) {
     setTokensToPurchase(event.target.value);
   };
 
-  const handlePayButtonClick = async () => {
-    console.log("Join Samhita");
-    // setLoading(true);
+  const getAllDataDaos = async () => {
     try {
       const { ethereum } = window;
       if (ethereum) {
         const provider = new ethers.providers.Web3Provider(ethereum);
         const signer = provider.getSigner();
-        console.log(await signer.getAddress());
+        const { chainId } = await provider.getNetwork();
+        if (chainId === 1029) {
+          const contract = new ethers.Contract(
+            languagedaofactory,
+            languagedaofactoryABI.abi,
+            signer
+          );
+          const dataDaos = await contract.getUserDataDaos(address);
+          setDataDaos(dataDaos);
+
+          const allDAOs = await contract.getAllDataDaos();
+          for (let i = 0; i < allDAOs.length; i++) {
+            const languageContract = new ethers.Contract(
+              allDAOs[i].dataDaoAddress,
+              languagedaoABI.abi,
+              signer
+            );
+            // const isMember = await languageContract.isMemberAdded(address);
+            // if (isMember) {
+            //   joinedDaos.push(allDAOs[i]);
+            // }
+          }
+          // setJoinedDaos(joinedDaos);
+        } else {
+          alert("Please connect to the BitTorrent Chain Donau!");
+        }
+      }
+    } catch (error) {
+      console.log(error);
+      alert(error.message);
+    }
+  };
+
+  useEffect(() => {
+    getAllDataDaos();
+  }, []);
+
+  const handlePayButtonClick = async () => {
+    try {
+      const { ethereum } = window;
+      if (ethereum) {
+        const provider = new ethers.providers.Web3Provider(ethereum);
+        const signer = provider.getSigner();
         if (!provider) {
           console.log("Metamask is not installed, please install!");
         }
         const { chainId } = await provider.getNetwork();
-        console.log("switch case for this case is: " + chainId);
         if (chainId === 1029) {
           const contract = new ethers.Contract(
             samhitacontract,
@@ -58,35 +98,26 @@ function PreExistingdaos({ props, onclose }) {
             signer
           );
           const price = await tokenContract.getTokenPrice();
-          // console.log(price);
           const decimal_price = parseInt(price._hex, 16);
-          // console.log(decimal_price);
-          console.log(tokensToPurchase);
           const value = tokensToPurchase * decimal_price;
-          console.log(value);
           settxloading(true);
           const tx = await contract.addMember(tokensToPurchase, {
             value: String(value),
           });
           await tx.wait();
-          console.log("Congratulatons you're member of Samhita DAO");
           settxloading(false);
-
-          // setissamhitajoined(true);
-          // setHassamhitaJoined(true);
           sethasjoinsamhita(true);
           setmembermsg(true);
           setTimeout(() => {
-            togglePopup(); // Close the popup
+            togglePopup();
           }, 3000);
-          // onclose();
         } else {
           alert("Please connect to the BitTorrent Chain Donau!");
         }
       }
     } catch (error) {
       console.log(error);
-      alert(error["message"]);
+      alert(error.message);
       settxloading(false);
     }
   };
@@ -97,11 +128,7 @@ function PreExistingdaos({ props, onclose }) {
       if (ethereum) {
         const provider = new ethers.providers.Web3Provider(ethereum);
         const signer = provider.getSigner();
-        if (!provider) {
-          console.log("Metamask is not installed, please install!");
-        }
         const { chainId } = await provider.getNetwork();
-        console.log("switch case for this case is: " + chainId);
         if (chainId === 1029) {
           const contract = new ethers.Contract(
             samhitacontract,
@@ -109,10 +136,7 @@ function PreExistingdaos({ props, onclose }) {
             signer
           );
           const user = signer.getAddress();
-          console.log(user);
           const hasjoined = await contract.isMemberAdded(user);
-          console.log(hasjoined);
-          // setHassamhitaJoined(hasjoined);
           sethasjoinsamhita(hasjoined);
         } else {
           alert("Please connect to the BitTorrent Chain Donau!");
@@ -120,34 +144,19 @@ function PreExistingdaos({ props, onclose }) {
       }
     } catch (error) {
       console.log(error);
-      alert(error["message"]);
+      alert(error.message);
     }
   };
 
   useEffect(() => {
     getsamhitajoined();
   }, []);
+
   const staticDaoData = {
     daoName: "Samhita DAO",
     description:
       "Samhita DAO was born from a deep sense of urgency to save endangered languages from disappearing into oblivion. Samhita DAO is empowering communities to create dictionaries, grammar guides, and oral histories that capture the essence of their language.",
   };
-
-  const daoData = [
-    {
-      id: 1,
-      header: "Sanskrit DAO",
-      description:
-        "This is the DAO for the Sanskrit language. Sanskrit is one of the 22 official languages of India, and it is the second official language of two states in northern India. The English language has a rich literary history and body of written works. The creation of Sanskrit was thought to have been done by the god Brahma. Let's preserve this ancient language together.",
-    },
-    {
-      id: 2,
-      header: "Hindi DAO",
-      description:
-        "What is the introduction of Hindi. Hindi is derived from Prakrit from which the Indo-Aryan languages are derived. Hindi is heavily influenced by Urdu and even Persian, although it still retains the Devanagari script of Sanskrit.",
-    },
-    // Add more DAO objects as needed
-  ];
 
   return (
     <div>
@@ -166,33 +175,56 @@ function PreExistingdaos({ props, onclose }) {
                   All the Language DAOs on the platform
                 </div>
               </div>
-              <div className="div-for-existing-dao-card">
-                <div className="div-for-samhita-dao-card">
-                  <div className="dao-card-of-the-create-dao">
+              <div className="all-card-here">
+                <div className="dao-card dao-card-of-the-create-dao">
+                  <div className="header-of-the-dao-card-of-the-create-dao">
+                    <h2>{staticDaoData.daoName}</h2>
+                  </div>
+                  <div className="description-of-the-dao-card-of-the-create-dao">
+                    <p>{staticDaoData.description}</p>
+                  </div>
+                  {/* <div className="samhita-address-div">{samhitacontract}</div> */}
+                  <div className="div-to-flex-the-view-and-join-button-in-the-create-dao-pre">
+                    <button className="view-more-button-of-the-create-dao">
+                      View More{" "}
+                      <FontAwesomeIcon
+                        className="right-side-icon-of-button-in-the-joined-dao-for-view-more"
+                        icon={faArrowRight}
+                      />
+                    </button>
+                    <button
+                      className="join-button-of-the-create-dao"
+                      onClick={togglePopup}
+                      disabled={issamhitajoined || hasjoinsamhita}
+                    >
+                      {hasjoinsamhita ? "Joined" : "Join"}
+                      <FontAwesomeIcon
+                        className="right-side-icon-of-button-in-the-joined-dao-join"
+                        icon={faArrowRight}
+                      />
+                    </button>
+                  </div>
+                </div>
+                {allDataDaos.map((dao) => (
+                  <div className="dao-card dao-card-of-the-create-dao">
                     <div className="header-of-the-dao-card-of-the-create-dao">
-                      <h2>{staticDaoData.daoName}</h2>
+                      <h2>{dao.dataDaoName}</h2>
                     </div>
                     <div className="description-of-the-dao-card-of-the-create-dao">
-                      <p>{staticDaoData.description}</p>
+                      <p>{dao.dataDaoDescription}</p>
                     </div>
-                    <div className="samhita-address-div">{samhitacontract}</div>
                     <div className="div-to-flex-the-view-and-join-button-in-the-create-dao-pre">
-                      <button
-                        className="view-more-button-of-the-create-dao"
-                        // onClick={daodetail()}
-                      >
-                        View More{" "}
+                      <button className="view-more-button-of-the-create-dao">
+                        View More
                         <FontAwesomeIcon
                           className="right-side-icon-of-button-in-the-joined-dao-for-view-more"
                           icon={faArrowRight}
                         />
                       </button>
-                      <button
-                        className="join-button-of-the-create-dao"
-                        onClick={togglePopup}
-                        disabled={issamhitajoined || hasjoinsamhita}
-                      >
-                        {hasjoinsamhita ? "Joined" : "Join"}
+                      <button className="join-button-of-the-create-dao">
+                        {" "}
+                        Join
+                        {/* {hasjoinsamhita ? "Joined" : "Join"} */}
                         <FontAwesomeIcon
                           className="right-side-icon-of-button-in-the-joined-dao-join"
                           icon={faArrowRight}
@@ -200,35 +232,7 @@ function PreExistingdaos({ props, onclose }) {
                       </button>
                     </div>
                   </div>
-                </div>
-                <div className="div-for-other-language-dao-card">
-                  {daoData.map((dao) => (
-                    <div key={dao.id} className="dao-card-of-the-create-dao">
-                      <div className="header-of-the-dao-card-of-the-create-dao">
-                        <h2>{dao.header}</h2>
-                      </div>
-                      <div className="description-of-the-dao-card-of-the-create-dao">
-                        <p>{dao.description}</p>
-                      </div>
-                      <div className="div-to-flex-the-view-and-join-button-in-the-create-dao-pre">
-                        <button className="view-more-button-of-the-create-dao">
-                          View More
-                          <FontAwesomeIcon
-                            className="right-side-icon-of-button-in-the-joined-dao-for-view-more"
-                            icon={faArrowRight}
-                          />
-                        </button>
-                        <button className="join-button-of-the-create-dao">
-                          Join
-                          <FontAwesomeIcon
-                            className="right-side-icon-of-button-in-the-joined-dao-join"
-                            icon={faArrowRight}
-                          />
-                        </button>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+                ))}
               </div>
             </div>
           </div>
@@ -254,20 +258,12 @@ function PreExistingdaos({ props, onclose }) {
               />
             </div>
             <div className="pay-token-btton-div">
-              <button
-                className="pay-button"
-                onClick={() => {
-                  console.log("finally samhita");
-                  handlePayButtonClick();
-                }}
-              >
+              <button className="pay-button" onClick={handlePayButtonClick}>
                 Pay
               </button>
               {txloading && <div className="loading-message">Loading...</div>}
               {membermsg && (
-                <div>
-                  Congratulatons, You become DAO member of Samhita DAO!!
-                </div>
+                <div>Congratulatons, You become a member of Samhita DAO!!</div>
               )}
             </div>
           </div>

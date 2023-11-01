@@ -187,7 +187,7 @@ function ReviewInfo({
 
   return (
     <div className="create-dao-info-main">
-      <button onClick={() => getContract()}>contract</button>
+      {/* <button onClick={() => getContract()}>contract</button> */}
       <h1>Review Information</h1>
       <div className="review-main">
         <Accordion
