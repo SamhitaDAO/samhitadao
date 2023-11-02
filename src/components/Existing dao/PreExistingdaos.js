@@ -12,11 +12,13 @@ import { samhitacontract, samhitatokencontract } from "../../ContractAddresses";
 import languagedaoABI from "../../Samhita Artifacts/languagedao.json";
 import { languagedaofactory } from "../../ContractAddresses";
 import languagedaofactoryABI from "../../Samhita Artifacts/languagedaofactory.json";
+import languagetokenABI from "../../Samhita Artifacts/languagetoken.json";
 
 function PreExistingdaos({ props, onclose }) {
   const [showPopup, setShowPopup] = useState(false);
   const [tokensToPurchase, setTokensToPurchase] = useState(0);
   const [txloading, settxloading] = useState(false);
+  const [langtokenamount, setlangtokenamount] = useState();
   const [allDataDaos, setDataDaos] = useState([]);
   const { address } = useAccount();
   const navigate = useNavigate();
@@ -24,6 +26,22 @@ function PreExistingdaos({ props, onclose }) {
   const [membermsg, setmembermsg] = useState(false);
   const [hasjoinsamhita, sethasjoinsamhita] = useState(false);
   const [issamhitajoined, setissamhitajoined] = useState(false);
+  const [langdaoAddress, setlangdaoAddress] = useState();
+  const [langtokenaddress, setlangtokenaddress] = useState();
+  const [islangjoined, setislangjoined] = useState();
+  const [langJoinedStatus, setLangJoinedStatus] = useState([]);
+  const [SelectedDaoIndex, setSelectedDaoIndex] = useState();
+
+  useEffect(() => {
+    // Initialize the join status for each language DAO when you fetch the DAOs
+    const initialStatus = Array(allDataDaos.length).fill(false);
+    setLangJoinedStatus(initialStatus);
+  }, [allDataDaos]);
+
+  const togglePopups = (dao, index) => {
+    setSelectedDao(dao);
+    setSelectedDaoIndex(index);
+  };
 
   const togglePopup = () => {
     setShowPopup(!showPopup);
@@ -32,49 +50,6 @@ function PreExistingdaos({ props, onclose }) {
   const handleInputChange = (event) => {
     setTokensToPurchase(event.target.value);
   };
-
-  const getAllDataDaos = async () => {
-    try {
-      const { ethereum } = window;
-      if (ethereum) {
-        const provider = new ethers.providers.Web3Provider(ethereum);
-        const signer = provider.getSigner();
-        const { chainId } = await provider.getNetwork();
-        if (chainId === 1029) {
-          const contract = new ethers.Contract(
-            languagedaofactory,
-            languagedaofactoryABI.abi,
-            signer
-          );
-          const dataDaos = await contract.getUserDataDaos(address);
-          setDataDaos(dataDaos);
-
-          const allDAOs = await contract.getAllDataDaos();
-          for (let i = 0; i < allDAOs.length; i++) {
-            const languageContract = new ethers.Contract(
-              allDAOs[i].dataDaoAddress,
-              languagedaoABI.abi,
-              signer
-            );
-            // const isMember = await languageContract.isMemberAdded(address);
-            // if (isMember) {
-            //   joinedDaos.push(allDAOs[i]);
-            // }
-          }
-          // setJoinedDaos(joinedDaos);
-        } else {
-          alert("Please connect to the BitTorrent Chain Donau!");
-        }
-      }
-    } catch (error) {
-      console.log(error);
-      alert(error.message);
-    }
-  };
-
-  useEffect(() => {
-    getAllDataDaos();
-  }, []);
 
   const handlePayButtonClick = async () => {
     try {
@@ -152,6 +127,162 @@ function PreExistingdaos({ props, onclose }) {
     getsamhitajoined();
   }, []);
 
+  const getAllDataDaos = async () => {
+    console.log("entered Data DAO fucntion");
+    try {
+      const { ethereum } = window;
+      if (ethereum) {
+        const provider = new ethers.providers.Web3Provider(ethereum);
+        const signer = provider.getSigner();
+        const { chainId } = await provider.getNetwork();
+        if (chainId === 1029) {
+          const contract = new ethers.Contract(
+            languagedaofactory,
+            languagedaofactoryABI.abi,
+            signer
+          );
+
+          const dataDaos = await contract.getUserDataDaos(address);
+          setDataDaos(dataDaos);
+
+          console.log(dataDaos);
+
+          const allDAOs = await contract.getAllDataDaos();
+          // console.log("allDAOS =", allDAOs);
+          for (let i = 0; i < allDAOs.length; i++) {
+            const languageContract = new ethers.Contract(
+              allDAOs[i].dataDaoAddress,
+              languagedaoABI.abi,
+              signer
+            );
+
+            console.log("language contract here : ", languageContract);
+            console.log(
+              "language contract address : ",
+              languageContract.address
+            );
+
+            const daoAddress = languageContract.address;
+            const tokenAddress = dataDaos[i].dataDAOTokenAddress;
+
+            setlangdaoAddress(daoAddress);
+            setlangtokenaddress(tokenAddress);
+
+            // console.log("address", dataDaos[i].dataDaoAddress);
+            // const isMember = await languageContract.isMemberAdded(address);
+            // if (isMember) {
+            //   joinedDaos.push(allDAOs[i]);
+            // }
+          }
+          // setJoinedDaos(joinedDaos);
+        } else {
+          alert("Please connect to the BitTorrent Chain Donau!");
+        }
+      }
+    } catch (error) {
+      console.log(error);
+      alert(error.message);
+    }
+  };
+
+  useEffect(() => {
+    getAllDataDaos();
+  }, []);
+
+  const joinLanguageDAO = async (daoAddress, tokenAddress, index) => {
+    console.log("entered joinlanguage dao function");
+    console.log("daoAddress = ", daoAddress);
+    console.log("tokenAddress", tokenAddress);
+    console.log("index", index);
+    // setLoading(true);
+    try {
+      const { ethereum } = window;
+      if (ethereum) {
+        const provider = new ethers.providers.Web3Provider(ethereum);
+        const signer = provider.getSigner();
+        if (!provider) {
+          console.log("Metamask is not installed, please install!");
+        }
+        const { chainId } = await provider.getNetwork();
+        if (chainId === 1029) {
+          const contract = new ethers.Contract(
+            daoAddress,
+            languagedaoABI.abi,
+            signer
+          );
+          console.log(contract);
+          const tokenContract = new ethers.Contract(
+            tokenAddress,
+            languagetokenABI.abi,
+            signer
+          );
+          const samhitaCon = new ethers.Contract(
+            samhitacontract,
+            SamhitaABI.abi,
+            signer
+          );
+          console.log(tokenContract);
+          const price = await tokenContract.getTokenPrice();
+          console.log(price);
+          // const convertPrice = ethers.utils.formatEther;
+          // console.log(parseInt(price, 16));
+          // console.log(await samhitaCon.checkIsMemberAdded(signer.getAddress()));
+          const tx = await contract.addMember(langtokenamount, {
+            // value: BigNumber.from(ethers.utils.formatEther(userAmount * price)),
+            value: String(langtokenamount * price),
+          });
+          await tx.wait();
+          console.log("joined this language dao");
+
+          // Update the join status for the DAO using the provided index
+          const updatedLangJoinedStatus = [...langJoinedStatus];
+          updatedLangJoinedStatus[index] = true;
+          setLangJoinedStatus(updatedLangJoinedStatus);
+
+          // setLoading(false);
+          window.location.reload();
+        } else {
+          alert("Please connect to the BitTorrent Chain Donau!");
+        }
+      }
+    } catch (error) {
+      console.log(error);
+      alert(error["message"]);
+    }
+  };
+
+  const getLanguageIsJoined = async () => {
+    try {
+      const { ethereum } = window;
+      if (ethereum) {
+        const provider = new ethers.providers.Web3Provider(ethereum);
+        const signer = provider.getSigner();
+        if (!provider) {
+          console.log("Metamask is not installed, please install!");
+        }
+        const { chainId } = await provider.getNetwork();
+        console.log("switch case for this case is: " + chainId);
+        if (chainId === 1029) {
+          const contract = new ethers.Contract(
+            samhitacontract,
+            SamhitaABI.abi,
+            signer
+          );
+          const user = await signer.getAddress();
+          const hasJoined = await contract.isMemberAdded(user);
+          console.log(hasJoined);
+          setislangjoined(hasJoined);
+          // setHasJoinSamhita(hasJoined);
+        } else {
+          alert("Please connect to the BitTorrent Chain Donau!");
+        }
+      }
+    } catch (error) {
+      console.log(error);
+      alert(error["message"]);
+    }
+  };
+
   const staticDaoData = {
     daoName: "Samhita DAO",
     description:
@@ -174,6 +305,8 @@ function PreExistingdaos({ props, onclose }) {
                 <div className="ii-heading-existing-dao">
                   All the Language DAOs on the platform
                 </div>
+                <button onClick={getAllDataDaos}>allDataDaos</button>
+                <button onClick={getLanguageIsJoined}>hasjoinedlang</button>
               </div>
               <div className="all-card-here">
                 <div className="dao-card dao-card-of-the-create-dao">
@@ -205,14 +338,19 @@ function PreExistingdaos({ props, onclose }) {
                     </button>
                   </div>
                 </div>
-                {allDataDaos.map((dao) => (
-                  <div className="dao-card dao-card-of-the-create-dao">
+                {allDataDaos.map((dao, index) => (
+                  <div
+                    className="dao-card dao-card-of-the-create-dao"
+                    key={index}
+                  >
                     <div className="header-of-the-dao-card-of-the-create-dao">
                       <h2>{dao.dataDaoName}</h2>
                     </div>
                     <div className="description-of-the-dao-card-of-the-create-dao">
                       <p>{dao.dataDaoDescription}</p>
                     </div>
+                    {/* <p>{dao.dataDaoAddress}</p> */}
+                    {/* <p>{dao.dataDAOTokenAddress}</p> */}
                     <div className="div-to-flex-the-view-and-join-button-in-the-create-dao-pre">
                       <button className="view-more-button-of-the-create-dao">
                         View More
@@ -221,16 +359,67 @@ function PreExistingdaos({ props, onclose }) {
                           icon={faArrowRight}
                         />
                       </button>
-                      <button className="join-button-of-the-create-dao">
-                        {" "}
-                        Join
-                        {/* {hasjoinsamhita ? "Joined" : "Join"} */}
+                      <button
+                        className="join-button-of-the-create-dao"
+                        onClick={() => togglePopups(dao, index)}
+                      >
+                        {islangjoined ? "Joined" : "Join"}
                         <FontAwesomeIcon
                           className="right-side-icon-of-button-in-the-joined-dao-join"
                           icon={faArrowRight}
                         />
                       </button>
                     </div>
+                    {selectedDao && (
+                      <div className="popup">
+                        <div className="popup-content">
+                          <div className="div-for-cancel-icons">
+                            <button
+                              className="cancel-icon"
+                              onClick={togglePopup}
+                            >
+                              <FontAwesomeIcon icon={faTimes} />
+                            </button>
+                          </div>
+                          <div className="div-for-input-in-popup">
+                            <label>Enter Tokens</label> <br />
+                            <br />
+                            <input
+                              type="number"
+                              placeholder="Enter Token"
+                              className="token-input"
+                              value={langtokenamount}
+                              onChange={(event) =>
+                                setlangtokenamount(event.target.value)
+                              }
+                            />
+                          </div>
+                          <div className="pay-token-btton-div">
+                            <button
+                              onClick={() =>
+                                joinLanguageDAO(
+                                  dao.dataDaoAddress,
+                                  dao.dataDAOTokenAddress,
+                                  index
+                                )
+                              }
+                              className="pay-button"
+                            >
+                              Pay
+                            </button>
+                            {txloading && (
+                              <div className="loading-message">Loading...</div>
+                            )}
+                            {membermsg && (
+                              <div>
+                                Congratulations, You become a member of{" "}
+                                {selectedDao.dataDaoName} DAO!!
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
@@ -238,6 +427,9 @@ function PreExistingdaos({ props, onclose }) {
           </div>
         </div>
       </div>
+      {/* join languagedao popup */}
+
+      {/* join samhita popup */}
       {showPopup && (
         <div className="popup">
           <div className="popup-content">
