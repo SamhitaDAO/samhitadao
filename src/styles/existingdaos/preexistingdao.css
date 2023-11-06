@@ -38,6 +38,18 @@
   margin: 20px;
 }
 
+.description-of-the-dao-card-of-the-create-dao {
+  height: 40%;
+  overflow: auto;
+  text-overflow: revert;
+  white-space: unset;
+}
+
+.address-with-clipboard {
+  color: white;
+  padding: 0px 20px;
+}
+
 .div-for-existing-dao-card {
   margin: 50px 100px;
   display: flex;
