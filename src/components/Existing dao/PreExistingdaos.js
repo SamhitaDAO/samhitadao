@@ -190,6 +190,9 @@ function PreExistingdaos({ props, onclose }) {
               languagedaoABI.abi,
               signer
             );
+            console.log(languageContract);
+            console.log(allDAOs);
+            console.log(dataDaos);
 
             console.log("language contract here : ", languageContract);
             console.log(
@@ -198,23 +201,26 @@ function PreExistingdaos({ props, onclose }) {
             );
 
             const daoAddress = languageContract.address;
-            const tokenAddress = dataDaos[i].dataDAOTokenAddress;
+            console.log(daoAddress);
+            // const tokenAddress = dataDaos[i].dataDAOTokenAddress;
+            const tokenAddress = allDAOs[i].dataDAOTokenAddress;
+            console.log(tokenAddress);
 
             setlangdaoAddress(daoAddress);
             setlangtokenaddress(tokenAddress);
 
-            console.log("address", dataDaos[i].dataDaoAddress);
+            console.log("address", allDAOs[i].dataDaoAddress);
             const user = await signer.getAddress();
 
             const contract = new ethers.Contract(
-              dataDaos[i].dataDaoAddress,
+              allDAOs[i].dataDaoAddress,
               languagedaoABI.abi,
               signer
             );
 
             const joined = await contract.isMemberAdded(user);
             newData.push({
-              ...dataDaos[i],
+              ...allDAOs[i],
               hasJoined: joined,
             });
 

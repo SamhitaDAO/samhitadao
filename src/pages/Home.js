@@ -41,6 +41,7 @@ function Home() {
           const user = "0x64A56d847EA0518A7ed4C31eecF59a87c031A523";
           console.log("started delegating....");
           const userdelegating = await contract.delegate(user);
+
           console.log("completed delegating...");
         } else {
           alert("Please connect to the BitTorrent Chain Donau!");
