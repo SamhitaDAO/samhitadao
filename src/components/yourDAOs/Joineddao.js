@@ -12,6 +12,7 @@ function Joineddao() {
   const navigate = useNavigate();
   const [selectedDao, setSelectedDao] = useState(null);
   const [ismembersamhita, setismembersamhita] = useState(false);
+  const [joinedDaos, setJoinedDaos] = useState([]);
 
   const getsamhitajoined = async () => {
     try {
@@ -100,7 +101,7 @@ function Joineddao() {
           </div>
         </div>
 
-        {daoData.map((dao) => (
+        {joinedDaos.map((dao) => (
           <div key={dao.id} className="card-of-the-joined-dao">
             <div className="card-headerof-the-joined-dao">
               <h2>{dao.daoName}</h2>

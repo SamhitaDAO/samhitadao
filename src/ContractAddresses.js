@@ -1,13 +1,12 @@
-export const samhitacontract = "0xB836B54fB203E9da60b69bF80C57B7b65dB81Ca7";
+export const samhitacontract = "0x952E6EC6ACC621304f96BC08E69D53E0Ef20B22b";
 export const samhitatokencontract =
-  "0x942732C97A710a22Fe9c68f62582Aa99520e1B69";
-export const timelockcontract = "0xe61D10Ee93478c126c7A5707E815377221096c95";
-export const templatenftcontract = "0x7e3D13CB4A1d35e1748ae49aDC5f0387FfB4Acc8";
-export const languagedaofactory = "0xf868D06Be515AEc527dFc8448f64E1290B3240f4";
+  "0xf5e645daE652a69778eE9B7A8EDFe063BDFa55A3";
+export const timelockcontract = "0x5999B73D708023d4f95836ae712A1Aab63989BbA";
+export const templatenftcontract = "0x55312e417a2479E2Fc95Ca2E1f803A902e3Cb1e1";
+export const languagedaofactory = "0x162ccEc67d3f833e51c5783aDEe7B9362237820E";
 
-// Timelock:  0xe61D10Ee93478c126c7A5707E815377221096c95
-// Template NFT: 0x7e3D13CB4A1d35e1748ae49aDC5f0387FfB4Acc8
-// LanguageDAO Factory: 0xf868D06Be515AEc527dFc8448f64E1290B3240f4
-// -------------------------------------------------------
-// Samhita Token: 0x942732C97A710a22Fe9c68f62582Aa99520e1B69
-// Samhita: 0xB836B54fB203E9da60b69bF80C57B7b65dB81Ca7
+// Timelock address:  0x5999B73D708023d4f95836ae712A1Aab63989BbA
+// Samhita Token address: 0xf5e645daE652a69778eE9B7A8EDFe063BDFa55A3
+// Templatenft Address: 0x55312e417a2479E2Fc95Ca2E1f803A902e3Cb1e1
+// Samhita Address:  0x952E6EC6ACC621304f96BC08E69D53E0Ef20B22b
+// LanguageDAOfactory Address: 0x162ccEc67d3f833e51c5783aDEe7B9362237820E

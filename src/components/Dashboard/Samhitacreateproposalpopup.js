@@ -1,79 +1,90 @@
 import React, { useState } from "react";
 import "../../styles/dashboard/createproposalpopup.css";
-import { ethers } from "ethers";
-import SamhitaABI from "../../Samhita Artifacts/samhita.json";
 import { Web3Storage } from "web3.storage";
+import { ethers } from "ethers";
+import { samhitacontract } from "../../ContractAddresses";
+import samhitaABI from "../../Samhita Artifacts/samhita.json";
 import { samhitatokencontract } from "../../ContractAddresses";
-import samhitaTokenABI from "../../Samhita Artifacts/samhitaToken.json";
-const samhitacontract = "0x912E7159bd7dd108e524311bf66266519f7400fa";
+import samhitatokenABI from "../../Samhita Artifacts/samhitaToken.json";
 
-function Samhitacreateproposalpopup() {
+function Samhitacreateproposalpopup({ onClose }) {
   const [proposalcid, setproposalcid] = useState("");
   const [formData, setFormData] = useState({
     title: "",
     description: "",
     file: null,
+    category: "select", // Default value for category
   });
 
-  const handlesubmitalldata = async () => {
-    console.log("entered to submit all data");
-    console.log("form data:", formData);
+  const createsamhitaproposal = async (formData) => {
+    console.log("create samhita proposal started");
     try {
       const { ethereum } = window;
       if (ethereum) {
         const provider = new ethers.providers.Web3Provider(ethereum);
         const signer = provider.getSigner();
-        console.log(await signer.getAddress());
-
         if (!provider) {
           console.log("Metamask is not installed, please install!");
-          return;
         }
-
         const { chainId } = await provider.getNetwork();
-        console.log("switch case for this case is: " + chainId);
 
         if (chainId === 1029) {
           const contract = new ethers.Contract(
             samhitacontract,
-            SamhitaABI.abi,
+            samhitaABI.abi,
             signer
           );
-          const tokenContract = new ethers.Contract(
+
+          const tokencontract = new ethers.Contract(
             samhitatokencontract,
-            samhitaTokenABI.abi,
+            samhitatokenABI.abi,
             signer
           );
 
-          const { title, description, category } = formData;
-          console.log(proposalcid);
-          const proposalFile = proposalcid;
-          const targets = [samhitatokencontract]; // Add the target addresses as needed
-          const values = [0]; // Add the values as needed
-          const signatures = ["execute(uint)"]; // Add the signatures as needed
-          const calldatas = [
-            ethers.utils.defaultAbiCoder.encode(["uint256"], [42]),
-          ]; // Add the calldatas as needed
+          console.log("getting the form data");
           const stakeAmount = await contract.proposalStake();
-          console.log(stakeAmount);
+          const delegatee = await tokencontract.delegate(signer.getAddress());
+          await delegatee.wait();
+          // Prepare the proposal data
+          const { title, description, file, category } = formData;
 
-          await tokenContract.delegate(signer.getAddress());
+          // Get the CID link from the input field
+          const proposalFileCID = proposalcid;
 
-          console.log(stakeAmount);
-          const tx = await contract.propose(
-            targets,
-            values,
-            signatures,
-            calldatas,
+          // Convert the category to lowercase
+          const lowercaseCategory = category.toLowerCase();
+
+          // Prepare the proposal data for the contract function
+          const targets = []; // Fill in your contract-specific data
+          // const values = []; // Fill in your contract-specific data
+          // const signatures = []; // Fill in your contract-specific data
+          // const calldatas = []; // Fill in your contract-specific data
+
+          // Call the smart contract function
+          // const proposalId = await contract.propose(
+          //   targets,
+          //   values,
+          //   signatures,
+          //   calldatas,
+          //   title,
+          //   description,
+          //   proposalFileCID,
+          //   lowercaseCategory
+          // );
+          console.log("calling function from contract");
+          const proposalId = await contract.propose(
+            ["0x942732C97A710a22Fe9c68f62582Aa99520e1B69"],
+            [0],
+            ["execute(uint)"],
+            [ethers.utils.defaultAbiCoder.encode(["uint256"], [42])],
             title,
             description,
-            proposalFile,
-            category,
+            proposalFileCID,
+            lowercaseCategory,
             { value: stakeAmount }
           );
 
-          await tx.wait(); // Wait for the transaction to be mined
-          console.log("Proposal submitted successfully!");
+          console.log("Proposal created with ID:", proposalId);
         } else {
           alert("Please connect to the BitTorrent Chain Donau!");
         }
@@ -84,55 +95,45 @@ function Samhitacreateproposalpopup() {
     }
   };
 
-  const [isFormComplete, setIsFormComplete] = useState(false);
+  const handleClose = () => {
+    onClose();
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-    checkFormCompleteness();
   };
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     setFormData({ ...formData, file });
-    checkFormCompleteness();
   };
 
-  const checkFormCompleteness = () => {
-    const { title, description, file } = formData;
-    if (title.trim() !== "" && description.trim() !== "" && file) {
-      setIsFormComplete(true);
+  const handleGetCIDLink = async () => {
+    const { file } = formData;
+
+    if (file) {
+      const client = new Web3Storage({
+        token:
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDRhNDBCNzA3QUU5NTZCQTg2NzQyNzdjNWRBRDE2NGZkZWNlQTVBNzAiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2ODMyODYzMjk4NDEsIm5hbWUiOiJkZW1vIGFwcCAifQ.5MSMQY-ZPWuMNJQrFFrguMuYlqeoDHyMuweHu57xRyQ",
+      });
+
+      try {
+        const cid = await client.put([file]);
+        console.log("Uploaded CID:", cid);
+        setproposalcid(`https://${cid}.ipfs.w3s.link/${formData.file.name}`);
+      } catch (error) {
+        console.error("Error uploading file to Web3.Storage:", error);
+      }
     } else {
-      setIsFormComplete(false);
+      console.error("No file selected for upload.");
     }
   };
 
   const handleSubmit = async (e) => {
-    console.log("entered to retrieve cid");
     e.preventDefault();
-
-    // if (!isFormComplete) {
-    //   return;
-    // }
-    console.log("starting");
-    const { title, description, file } = formData;
-    const client = new Web3Storage({
-      token:
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDRhNDBCNzA3QUU5NTZCQTg2NzQyNzdjNWRBRDE2NGZkZWNlQTVBNzAiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2ODMyODYzMjk4NDEsIm5hbWUiOiJkZW1vIGFwcCAifQ.5MSMQY-ZPWuMNJQrFFrguMuYlqeoDHyMuweHu57xRyQ",
-    });
-    console.log("started"); // Replace with your Web3.Storage API key
-    try {
-      // console.log("yayyyy");
-      const cid = await client.put([file]);
-      // You can now use the 'cid' to reference the uploaded file
-      console.log("Uploaded CID:", cid);
-      setproposalcid(cid);
-      handlesubmitalldata();
-      // Add code here to store the 'cid' in your contract or perform other actions as needed
-    } catch (error) {
-      console.error("Error uploading file to Web3.Storage:", error);
-      // Handle the error, display a message, or take appropriate action
-    }
+    createsamhitaproposal(formData);
+    // ... (the code for submitting data remains the same)
   };
 
   return (
@@ -195,6 +196,9 @@ function Samhitacreateproposalpopup() {
               required
             />
           </div>
+          <button type="button" onClick={handleGetCIDLink}>
+            Get CID Link
+          </button>
           <div className="input-form-div-datascrape">
             <label htmlFor="cidLink">CID Link</label>
             <br />
@@ -203,23 +207,20 @@ function Samhitacreateproposalpopup() {
               id="cidLink"
               name="cidLink"
               value={proposalcid}
-              // value={formData.cidLink}
-              // onChange={handleChange}
             />
           </div>
           <div className="form-group-proposal-popup-btn">
             <button
-              onSubmit={handleSubmit}
               type="submit"
               className="submit-btn-proposal-popup"
-              // disabled={!isFormComplete}
+              onClick={handleSubmit}
             >
               Submit
             </button>
             <button
               type="button"
               className="close-btn-proposal-popup"
-              // onClick={onClose}
+              onClick={handleClose}
             >
               Close
             </button>

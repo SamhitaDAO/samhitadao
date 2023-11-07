@@ -12,10 +12,45 @@ import orangeCircle from "../assets/landingPage/orange-circle.svg";
 import languageImage from "../assets/landingPage/language.svg";
 import mainHeroBg from "../assets/landingPage/main-hero-bg.svg";
 import AboutBecomeMember from "../components/aboutPlatform/AboutBecomeMember";
+import { samhitatokencontract } from "../ContractAddresses";
+import samhitatokenABI from "../Samhita Artifacts/samhitaToken.json";
 
 function Home() {
   const [isOpen, setIsOpen] = useState(false);
   const popupRef = useRef(null);
+
+  const delegateusers = async () => {
+    console.log("entering into delegateing user function");
+    try {
+      const { ethereum } = window;
+      if (ethereum) {
+        const provider = new ethers.providers.Web3Provider(ethereum);
+        const signer = provider.getSigner();
+        if (!provider) {
+          console.log("Metamask is not installed, please install!");
+        }
+        const { chainId } = await provider.getNetwork();
+
+        if (chainId === 1029) {
+          const contract = new ethers.Contract(
+            samhitatokencontract,
+            samhitatokenABI.abi,
+            signer
+          );
+
+          const user = "0x64A56d847EA0518A7ed4C31eecF59a87c031A523";
+          console.log("started delegating....");
+          const userdelegating = await contract.delegate(user);
+          console.log("completed delegating...");
+        } else {
+          alert("Please connect to the BitTorrent Chain Donau!");
+        }
+      }
+    } catch (error) {
+      console.log(error);
+      alert(error.message);
+    }
+  };
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -93,6 +128,12 @@ function Home() {
                   We preserve the past for the <br />
                   future by reviving endangered languages.
                 </p>
+                <button
+                  onClick={delegateusers}
+                  className="rounded-button button-to-join"
+                >
+                  Delegate users
+                </button>
                 <button
                   className="rounded-button button-to-join"
                   onClick={() => setIsOpen(!isOpen)}

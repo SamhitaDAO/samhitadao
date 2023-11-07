@@ -22,10 +22,10 @@ function PreExistingdaos({ props, onclose }) {
   const [showPopup, setShowPopup] = useState(false);
   const [tokensToPurchase, setTokensToPurchase] = useState(0);
   const [txloading, settxloading] = useState(false);
-  const [langtokenamount, setlangtokenamount] = useState();
+  // const [langtokenamount, setlangtokenamount] = useState();
   const [allDataDaos, setDataDaos] = useState([]);
   const { address } = useAccount();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [selectedDao, setSelectedDao] = useState(null);
   const [membermsg, setmembermsg] = useState(false);
   const [hasjoinsamhita, sethasjoinsamhita] = useState(false);
@@ -33,14 +33,20 @@ function PreExistingdaos({ props, onclose }) {
   const [langdaoAddress, setlangdaoAddress] = useState();
   const [langtokenaddress, setlangtokenaddress] = useState();
   const [islangjoined, setislangjoined] = useState();
-  const [langJoinedStatus, setLangJoinedStatus] = useState([]);
-  const [JoinedDaos, setJoinedDaos] = useState([]);
+  // const [langJoinedStatus, setLangJoinedStatus] = useState([]);
+  // const [JoinedDaos, setJoinedDaos] = useState([]);
   const [hasJoinedValues, setHasJoinedValues] = useState([]);
-  const [selectedLangDaoAddress, setSelectedLangDaoAddress] = useState(""); // Updated state for DAO address
-  const [selectedLangTokenAddress, setSelectedLangTokenAddress] = useState("");
+  // const [selectedLangDaoAddress, setSelectedLangDaoAddress] = useState(""); // Updated state for DAO address
+  // const [selectedLangTokenAddress, setSelectedLangTokenAddress] = useState("");
   const [showLangDaoPopup, setShowLangDaoPopup] = useState(false);
   const [langtokensToPurchase, setlangtokensToPurchase] = useState();
   const [diduserjoinlang, setdiduserjoinlang] = useState();
+  const [joinedDaos, setJoinedDaos] = useState([]);
+
+  // Function to add a new joined DAO to the state
+  const addJoinedDao = (daoData) => {
+    setJoinedDaos((prevJoinedDaos) => [...prevJoinedDaos, daoData]);
+  };
 
   useEffect(() => {
     const initialStatus = Array(allDataDaos.length).fill(false);
@@ -278,6 +284,15 @@ function PreExistingdaos({ props, onclose }) {
           await tx.wait();
           console.log("joined this language dao");
 
+          const joinedDao = {
+            id: index, // You can generate a unique ID for each joined DAO
+            daoName: "", // Set the name of the joined DAO based on the provided parameter
+            description: "", // Set the description based on the provided parameter
+            // Add other relevant data for the joined DAO
+          };
+
+          // Pass the joined DAO data to the Joineddao component
+          setSelectedDao(joinedDao);
           // Update the hasJoined value in the state
           const updatedJoinStatus = [...hasJoinedValues];
           updatedJoinStatus[index] = true;
@@ -354,9 +369,10 @@ function PreExistingdaos({ props, onclose }) {
                 <div className="ii-heading-existing-dao">
                   All the Language DAOs on the platform
                 </div>
-                <button onClick={getAllDataDaos}>allDataDaos</button>
-                <button onClick={getLanguageIsJoined}>hasjoinedlang</button>
+                {/* <button onClick={getAllDataDaos}>allDataDaos</button>
+                <button onClick={getLanguageIsJoined}>hasjoinedlang</button> */}
               </div>
+
               <div className="all-card-here">
                 <div className="dao-card dao-card-of-the-create-dao">
                   <div className="header-of-the-dao-card-of-the-create-dao">
@@ -435,7 +451,8 @@ function PreExistingdaos({ props, onclose }) {
                         }}
                         // disabled={hasJoinedValues[index]}
                       >
-                        {diduserjoinlang ? "Joined" : "Join"}
+                        {console.log(dao.hasJoined)}
+                        {dao.hasJoined ? "Joined" : "Join"}
                         {/* Join */}
                         {/* {hasJoinedValues[index] ? "Joined" : "Join"} */}
                         <FontAwesomeIcon
