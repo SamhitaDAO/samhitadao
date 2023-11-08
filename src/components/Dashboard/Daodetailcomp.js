@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom"; // Import useParams to access route parameters
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faTimes } from "@fortawesome/free-solid-svg-icons";
 import Createproposalpopup from "./Createproposalpopup";
@@ -9,6 +10,7 @@ import SamhitaABI from "../../Samhita Artifacts/samhita.json";
 import SamhitaTokenABI from "../../Samhita Artifacts/samhitaToken.json";
 import { samhitacontract, samhitatokencontract } from "../../ContractAddresses";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 // const samhitacontract = "0x912E7159bd7dd108e524311bf66266519f7400fa";
 // const samhitatokencontract = "0xDC650B06E859051D42360913534D6589cc86a672";
@@ -24,6 +26,23 @@ const datasetData = [
 ];
 
 function Daodetailcomp() {
+  const location = useLocation();
+  const { state } = location;
+  console.log(location);
+  console.log("IsSamhita:", state.isSamhita);
+  console.log("Dao Address", state.daoAddress);
+  const { id } = useParams(); // Access the DAO ID from route parameters
+  const [isSamhita, setIsSamhita] = useState(false); // Default value is false
+  const [daoAddress, setDaoAddress] = useState(null);
+
+  useEffect(() => {
+    if (state) {
+      const { isSamhita, daoAddress } = state;
+      setIsSamhita(isSamhita);
+      setDaoAddress(daoAddress);
+    }
+  }, [state]);
+
   // const totalamount = value + userbuy;
   const [tokensToPurchase, setTokensToPurchase] = useState(0);
   const [showPopup, setShowPopup] = useState(false);

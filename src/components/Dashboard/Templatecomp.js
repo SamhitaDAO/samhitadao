@@ -1,7 +1,26 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom"; // Import useParams to access route parameters
+import { useLocation } from "react-router-dom";
 import "../../styles/dashboard/templatecomp.css";
 
 function Templatecomp() {
+  const location = useLocation();
+  const { state } = location;
+  console.log(location);
+  console.log("IsSamhita:", state.isSamhita);
+  console.log("Dao Address", state.daoAddress);
+  const { id } = useParams(); // Access the DAO ID from route parameters
+  const [isSamhita, setIsSamhita] = useState(false); // Default value is false
+  const [daoAddress, setDaoAddress] = useState(null);
+
+  useEffect(() => {
+    if (state) {
+      const { isSamhita, daoAddress } = state;
+      setIsSamhita(isSamhita);
+      setDaoAddress(daoAddress);
+    }
+  }, [state]);
+
   // Sample data for your table
   const data = [
     {

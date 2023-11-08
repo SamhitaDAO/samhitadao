@@ -1,6 +1,5 @@
-// Mainpageofdashboard.js
-
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import topCurvedLinesDAO from "../../assets/yourDaos/top-curved-lines-your-dao.svg";
 import "../../styles/dashboard/mainpageofdashboard.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -14,25 +13,56 @@ import {
 import Dashboardcomp from "../Dashboard/Dashboardcomp";
 import Templatecomp from "../Dashboard/Templatecomp";
 import Daodetailcomp from "../Dashboard/Daodetailcomp";
-import { useEffect } from "react";
 import Proposalcomp from "../Dashboard/Proposalcomp";
 import { useParams } from "react-router-dom"; // Import useParams to access route parameters
 
 function Mainpageofdashboard() {
+  const location = useLocation();
+  const { state } = location;
+  console.log(location);
+  console.log(state);
   const { id } = useParams(); // Access the DAO ID from route parameters
+  const [isSamhita, setIsSamhita] = useState(false); // Default value is false
+  const [daoAddress, setDaoAddress] = useState(null);
+
+  // Check if state exists and access the props
+  useEffect(() => {
+    if (state) {
+      const { isSamhita, daoAddress } = state;
+      setIsSamhita(isSamhita);
+      setDaoAddress(daoAddress);
+    }
+  }, [state]);
+
   const [selectedOption, setSelectedOption] = useState("dashboard");
   const [daoData, setDaoData] = useState(null);
 
   const renderComponent = () => {
     switch (selectedOption) {
       case "dashboard":
-        return <Dashboardcomp id={id} />; // Pass the ID to the Dashboardcomp component
+        return (
+          <Dashboardcomp
+            id={id}
+            isSamhita={isSamhita}
+            daoAddress={daoAddress}
+          />
+        );
       case "templates":
-        return <Templatecomp />;
+        return (
+          <Templatecomp id={id} isSamhita={isSamhita} daoAddress={daoAddress} />
+        );
       case "daodetails":
-        return <Daodetailcomp />;
+        return (
+          <Daodetailcomp
+            id={id}
+            isSamhita={isSamhita}
+            daoAddress={daoAddress}
+          />
+        );
       case "proposals":
-        return <Proposalcomp />;
+        return (
+          <Proposalcomp id={id} isSamhita={isSamhita} daoAddress={daoAddress} />
+        );
       default:
         return null;
     }

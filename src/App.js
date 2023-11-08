@@ -128,7 +128,10 @@ function App() {
                 path="/go-to-main-dashboard"
                 element={<Mainpageofdashboard />}
               />
-              {/* <Route path="/" element={<Joineddao />} /> */}
+              {/* <Route
+                path="/main-page-your-daos/joindao"
+                element={<Joineddao />}
+              /> */}
               {/* <Route
                 path="/maindashboard/:daoId/*"
                 element={<Mainpageofdashboard />}

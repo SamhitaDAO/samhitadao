@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faArrowRight } from "@fortawesome/free-solid-icons";
 import Detailsofthedao from "../yourDAOs/Detailsofthedao";
@@ -17,6 +18,7 @@ function Joineddao() {
   const [joinedDaos, setJoinedDaos] = useState([]);
   const [notCreatedLanguageDaos, setNotCreatedLanguageDaos] = useState([]);
   const [languageDaosInfo, setLanguageDaosInfo] = useState([]);
+  const [isSamhita, setissamhita] = useState();
 
   const gettingjoineddaos = async () => {
     console.log("entered into getting all daos function");
@@ -118,12 +120,11 @@ function Joineddao() {
     getsamhitajoined();
   }, []);
 
-  const handleViewMoreClick = (isSamhita, daoAddress) => {
-    if (isSamhita) {
-      navigate("/samhita-dashboard");
-    } else {
-      navigate(`/language-dao-dashboard/${daoAddress}`);
-    }
+  const handleViewMoreClick = async (a, b) => {
+    console.log("view more btn here");
+    navigate("/go-to-main-dashboard", {
+      state: { isSamhita: a, daoAddress: b },
+    });
   };
 
   return (
@@ -147,7 +148,7 @@ function Joineddao() {
             <div className="div-for-button-of-the-joined-dao">
               <button
                 className="view-button-of-the-joined-dao"
-                onClick={handleViewMoreClick(true, samhitacontract)}
+                onClick={() => handleViewMoreClick(true, samhitacontract)}
               >
                 View More
               </button>
@@ -156,7 +157,7 @@ function Joineddao() {
         </div>
 
         <div className="another-div-for-language-daos-info">
-          {languageDaosInfo.map((dao) => (
+          {languageDaosInfo.map((dao, i) => (
             <div key={dao.dataDaoAddress} className="card-of-the-joined-dao">
               <div className="card-headerof-the-joined-dao">
                 <h2>{dao.dataDaoName}</h2>

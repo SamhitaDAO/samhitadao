@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "../../styles/dashboard/proposalcomp.css";
@@ -6,14 +7,31 @@ import { ethers } from "ethers";
 import { samhitacontract, samhitatokencontract } from "../../ContractAddresses";
 import SamhitaABI from "../../Samhita Artifacts/samhita.json";
 import SamhitaTokenABI from "../../Samhita Artifacts/samhitaToken.json";
+import { useParams } from "react-router-dom"; // Import useParams to access route parameters
 
 function Proposalcomp() {
+  const location = useLocation();
+  const { state } = location;
+  console.log(location);
+  console.log("IsSamhita:", state.isSamhita);
+  console.log("Dao Address", state.daoAddress);
+  const { id } = useParams(); // Access the DAO ID from route parameters
+  const [isSamhita, setIsSamhita] = useState(false); // Default value is false
+  const [daoAddress, setDaoAddress] = useState(null);
   const [showsamhitaproposalcount, setshowsamhitaproposalcount] = useState();
   const [allProposals, setAllProposals] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [proposalTitles, setProposalTitles] = useState([]);
   const [selectedTitle, setSelectedTitle] = useState("");
   const [selectedProposal, setSelectedProposal] = useState(null);
+
+  useEffect(() => {
+    if (state) {
+      const { isSamhita, daoAddress } = state;
+      setIsSamhita(isSamhita);
+      setDaoAddress(daoAddress);
+    }
+  }, [state]);
 
   const handlecastvoting = async (proposalId, isUpvote) => {
     console.log("Entered into cast voting function");
@@ -138,7 +156,11 @@ function Proposalcomp() {
   };
 
   useEffect(() => {
-    displayallproposal();
+    if (isSamhita === true) {
+      displayallproposal();
+    } else {
+      console.log("langggg");
+    }
   }, []);
 
   function formatUnixTimestamp(timestamp) {
@@ -233,6 +255,7 @@ function Proposalcomp() {
         {isLoading ? (
           <div>Loading...</div>
         ) : (
+          isSamhita &&
           allProposals.map((proposal) =>
             !selectedTitle || selectedTitle === proposal.title ? (
               <div
