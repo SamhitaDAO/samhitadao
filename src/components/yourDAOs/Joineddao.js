@@ -1,18 +1,85 @@
 import React, { useState, useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faArrowRight } from "@fortawesome/free-solid-icons";
 import Detailsofthedao from "../yourDAOs/Detailsofthedao";
 import "../../styles/yourDAOS/joineddao.css";
 import { ethers } from "ethers";
 import { useNavigate } from "react-router-dom";
 import SamhitaABI from "../../Samhita Artifacts/samhita.json";
 import { samhitacontract } from "../../ContractAddresses";
+import { languagedaofactory } from "../../ContractAddresses";
+import langdaofactoryABI from "../../Samhita Artifacts/languagedaofactory.json";
 
 function Joineddao() {
   const navigate = useNavigate();
   const [selectedDao, setSelectedDao] = useState(null);
   const [ismembersamhita, setismembersamhita] = useState(false);
   const [joinedDaos, setJoinedDaos] = useState([]);
+  const [notCreatedLanguageDaos, setNotCreatedLanguageDaos] = useState([]);
+  const [languageDaosInfo, setLanguageDaosInfo] = useState([]);
+
+  const gettingjoineddaos = async () => {
+    console.log("entered into getting all daos function");
+    try {
+      const { ethereum } = window;
+      if (ethereum) {
+        const provider = new ethers.providers.Web3Provider(ethereum);
+        const signer = provider.getSigner();
+        const useraddress = signer.getAddress();
+        if (!provider) {
+          console.log("Metamask is not installed, please install!");
+        }
+        const { chainId } = await provider.getNetwork();
+        console.log("switch case for this case is: " + chainId);
+        if (chainId === 1029) {
+          const contract = new ethers.Contract(
+            languagedaofactory,
+            langdaofactoryABI.abi,
+            signer
+          );
+          const getalldaoss = await contract.getAllDataDaos();
+          console.log(getalldaoss);
+          console.log(getalldaoss[0].dataDaoName);
+
+          const languageDaoAddresses = getalldaoss.map(
+            (dao) => dao.dataDaoAddress
+          );
+          console.log("Language DAO Addresses: ", languageDaoAddresses);
+
+          const getcreatedao = await contract.getUserDataDaos(useraddress);
+          console.log("get created dao", getcreatedao);
+          const getalluserdao = getcreatedao.map((dao) => dao.dataDaoAddress);
+          console.log("user created dao address:", getalluserdao);
+
+          const notCreatedLanguageDaos = languageDaoAddresses.filter(
+            (address) => !getalluserdao.includes(address)
+          );
+          console.log(
+            "Language DAO Addresses not created by the user: ",
+            notCreatedLanguageDaos
+          );
+
+          const languageDaosInfo = [];
+          for (const address of notCreatedLanguageDaos) {
+            const matchingDao = getalldaoss.find(
+              (dao) => dao.dataDaoAddress === address
+            );
+            if (matchingDao) {
+              languageDaosInfo.push(matchingDao);
+            }
+          }
+          console.log(
+            "Language DAO Info for not created by the user: ",
+            languageDaosInfo
+          );
+          setLanguageDaosInfo(languageDaosInfo);
+        }
+      }
+    } catch (error) {
+      console.log(error);
+      alert(error["message"]);
+    }
+  };
 
   const getsamhitajoined = async () => {
     try {
@@ -47,32 +114,23 @@ function Joineddao() {
   };
 
   useEffect(() => {
+    gettingjoineddaos();
     getsamhitajoined();
   }, []);
 
-  const handleViewMoreClick = () => {
-    // Navigate to the "go-to-main-dashboard" route
-    navigate("/go-to-main-dashboard");
+  const handleViewMoreClick = (isSamhita, daoAddress) => {
+    if (isSamhita) {
+      navigate("/samhita-dashboard");
+    } else {
+      navigate(`/language-dao-dashboard/${daoAddress}`);
+    }
   };
-
-  const daoData = [
-    {
-      id: 1,
-      daoName: "Sanskrit DAO",
-      description:
-        "This is the DAO for the Sanskrit language. Sanskrit is one of the 22 official languages of India, and it is the second official language of two states in northern India. The English language has a rich literary history and body of written works.",
-    },
-    {
-      id: 2,
-      daoName: "gujarati DAO",
-      description:
-        "This is the DAO for the Sanskrit language. Sanskrit is one of the 22 official languages of India, and it is the second official language of two states in northern India. The English language has a rich literary history and body of written works.",
-    },
-  ];
 
   return (
     <div>
       <div className="main-div-of-the-joined-dao">
+        {/* <button onClick={gettingjoineddaos}>getalldaos</button> */}
+
         <div className="card-of-the-joined-dao">
           <div className="card-headerof-the-joined-dao">
             <h2>Samhita DAO</h2>
@@ -89,42 +147,38 @@ function Joineddao() {
             <div className="div-for-button-of-the-joined-dao">
               <button
                 className="view-button-of-the-joined-dao"
-                onClick={handleViewMoreClick} // Navigate to the dashboard
+                onClick={handleViewMoreClick(true, samhitacontract)}
               >
                 View More
-                <FontAwesomeIcon
-                  className="right-side-icon-of-button-in-the-joined-dao-for-view-more"
-                  icon={faArrowRight}
-                />
               </button>
             </div>
           </div>
         </div>
 
-        {joinedDaos.map((dao) => (
-          <div key={dao.id} className="card-of-the-joined-dao">
-            <div className="card-headerof-the-joined-dao">
-              <h2>{dao.daoName}</h2>
-            </div>
-            <div className="card-body-of-the-joined-dao">
-              <p>{dao.description}</p>
-            </div>
-            <div className="card-footer-of-the-joined-dao">
-              <div className="div-for-button-of-the-joined-dao">
-                <button
-                  className="view-button-of-the-joined-dao"
-                  onClick={handleViewMoreClick} // Navigate to the dashboard
-                >
-                  View More
-                  <FontAwesomeIcon
-                    className="right-side-icon-of-button-in-the-joined-dao-for-view-more"
-                    icon={faArrowRight}
-                  />
-                </button>
+        <div className="another-div-for-language-daos-info">
+          {languageDaosInfo.map((dao) => (
+            <div key={dao.dataDaoAddress} className="card-of-the-joined-dao">
+              <div className="card-headerof-the-joined-dao">
+                <h2>{dao.dataDaoName}</h2>
+              </div>
+              <div className="card-body-of-the-joined-dao">
+                <p>{dao.dataDaoDescription}</p>
+              </div>
+              <div className="card-footer-of-the-joined-dao">
+                <div className="div-for-button-of-the-joined-dao">
+                  <button
+                    className="view-button-of-the-joined-dao"
+                    onClick={() =>
+                      handleViewMoreClick(false, dao.dataDaoAddress)
+                    }
+                  >
+                    View More
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
