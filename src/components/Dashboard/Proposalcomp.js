@@ -156,11 +156,7 @@ function Proposalcomp() {
   };
 
   useEffect(() => {
-    if (isSamhita === true) {
-      displayallproposal();
-    } else {
-      console.log("langggg");
-    }
+    displayallproposal();
   }, []);
 
   function formatUnixTimestamp(timestamp) {
@@ -181,13 +177,13 @@ function Proposalcomp() {
     setSelectedTitle(selectedTitle);
   };
 
-  const handleDropdown2Change = (event) => {
-    setDropdown2Value(event.target.value);
-  };
+  // const handleDropdown2Change = (event) => {
+  //   setDropdown2Value(event.target.value);
+  // };
 
-  const handleDropdown3Change = (event) => {
-    setDropdown3Value(event.target.value);
-  };
+  // const handleDropdown3Change = (event) => {
+  //   setDropdown3Value(event.target.value);
+  // };
 
   const handleStartDateChange = (date) => {
     setStartDate(date);

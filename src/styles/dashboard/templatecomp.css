@@ -1,52 +1,77 @@
-.inner-div-of-template-comp{
-    padding: 30px 70px;
-    margin-top: -20px;
-    width: fit-content;
-    height: 569px;
-    border-radius: 50px;
-    background: #FFFFFF6B;
+.inner-div-of-template-comp {
+  padding: 30px 70px;
+  margin-top: -20px;
+  width: fit-content;
+  height: 569px;
+  border-radius: 50px;
+  background: #ffffff6b;
 }
 
-.heading-div-of-template-comp{
-    text-align: center;
-    font-family: MuseoModerno;
-    font-size: 48px;
-    font-weight: 600;
-    line-height: 63px;
-    letter-spacing: 0.04em;
-    color: #FF5731;
+.heading-div-of-template-comp {
+  text-align: center;
+  font-family: MuseoModerno;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 63px;
+  letter-spacing: 0.04em;
+  color: #ff5731;
+}
+/* Create a unique class for your table */
+.my-special-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
 }
 
-.table-div-of-template-comp{
-    display: flex;
-    justify-content: center;
+.my-special-table th,
+.my-special-table td {
+  /* border: 1px solid #dddddd; */
+  text-align: left;
+  padding: 8px;
 }
 
-.table-div-of-template-comp table{
-    text-align: center;
+.my-special-table th {
+  background-color: #ff5f009e;
 }
 
-.table-div-of-template-comp table tbody{
-    font-size: 20px;
-    color: white;
+/* Add a CSS class to limit the width of the description column if needed */
+.my-special-table .description-column {
+  max-width: 200px; /* Adjust the width as needed */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
-.table-header-proposal-comp th{
-    margin: 0px 10px;
+.table-div-of-template-comp {
+  display: flex;
+  justify-content: center;
+}
+
+.table-div-of-template-comp table {
+  text-align: center;
+}
+
+.table-div-of-template-comp table tbody {
+  font-size: 20px;
+  color: white;
+}
+
+.table-header-proposal-comp th {
+  margin: 0px 10px;
 }
 
 .table-header-proposal-comp {
-    font-size: 25px;
-    width: 800px;
-    height: 58px;
-    background: #FF5F009E;
-    color: white; /* Optional: Set text color to white for better visibility */
-  }
-  
-  .table-header-proposal-comp:first-child {
-    border-radius: 13px 0px 0px 13px;
-  }
+  font-size: 25px;
+  width: 800px;
+  height: 58px;
+  background: #ff5f009e;
+  color: white; /* Optional: Set text color to white for better visibility */
+}
 
-  .table-header-proposal-comp:last-child {
-    border-radius: 0px 13px 13px 0px;
-  }
+.table-header-proposal-comp:first-child {
+  border-radius: 13px 0px 0px 13px;
+}
+
+.table-header-proposal-comp:last-child {
+  border-radius: 0px 13px 13px 0px;
+}

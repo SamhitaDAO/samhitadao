@@ -169,16 +169,8 @@ function Daodetailcomp() {
           </div>
         </div>
         <div className="button-in-dao-detail-comp">
-          {/* {ismembersamhita ? (
-            viewMode === "createProposalSamhita" ? (
-              <button onClick={openCreateProposalPopup}>Create Proposal</button>
-            ) : (
-              <button onClick={openchoosedatapattern}>Create Proposal</button>
-            )
-          ) : (
-            <button onClick={openchoosedatapattern}>Create Proposal</button>
-          )} */}
           <button onClick={openCreateProposalPopup}>Create Proposal</button>
+          <button onClick={handlePayButtonClick}>Buy Token</button>
         </div>
         <div className="heading-in-dao-detail-comp">Available Datasets</div>
         <div className="dataset-showcase-dao-detail-comp">
