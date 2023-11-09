@@ -31,8 +31,8 @@ function Daodetailcomp() {
   console.log(location);
   console.log("IsSamhita:", state.isSamhita);
   console.log("Dao Address", state.daoAddress);
-  const { id } = useParams(); // Access the DAO ID from route parameters
-  const [isSamhita, setIsSamhita] = useState(false); // Default value is false
+  const { id } = useParams();
+  const [isSamhita, setIsSamhita] = useState(false);
   const [daoAddress, setDaoAddress] = useState(null);
 
   useEffect(() => {

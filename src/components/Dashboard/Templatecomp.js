@@ -18,7 +18,7 @@ function Templatecomp() {
   const [allProposals, setAllProposals] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const displayallproposal = async () => {
+  const samhitadisplayallproposal = async () => {
     console.log("Entering into display all samhita proposal function");
     setIsLoading(true);
     try {
@@ -70,11 +70,11 @@ function Templatecomp() {
       const { isSamhita, daoAddress } = state;
       setIsSamhita(isSamhita);
       setDaoAddress(daoAddress);
-      displayallproposal();
+      samhitadisplayallproposal();
     }
   }, [state]);
 
-  const data = allProposals.map((proposal, index) => ({
+  const samhitapropdata = allProposals.map((proposal, index) => ({
     number: index + 1,
     title: proposal.title,
     description: proposal.description,
@@ -103,24 +103,34 @@ function Templatecomp() {
                 </tr>
               </thead>
               <tbody>
-                {data.map((item) => (
-                  <tr key={item.number}>
-                    <td>{item.number}</td>
-                    <td>{item.title}</td>
-                    <td>{item.description}</td>
-                    <td>
-                      <a
-                        href={item.fileLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        File Link
-                      </a>
-                    </td>
+                {isLoading ? (
+                  <tr>
+                    <td colSpan="4">Loading...</td>
+                    {/* <td colSpan="4">Fetching Templates</td> */}
                   </tr>
-                ))}
+                ) : isSamhita ? (
+                  samhitapropdata.map((item) => (
+                    <tr key={item.number}>
+                      <td>{item.number}</td>
+                      <td>{item.title}</td>
+                      <td>{item.description}</td>
+                      <td>
+                        <a
+                          href={item.fileLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          File Link
+                        </a>
+                      </td>
+                    </tr>
+                  ))
+                ) : null}
               </tbody>
             </table>
+            {/* {!isSamhita && (
+              <div>All proposals are hidden because isSamhita is false.</div>
+            )} */}
           </div>
         </div>
       </div>

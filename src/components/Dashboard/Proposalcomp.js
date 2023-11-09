@@ -249,7 +249,10 @@ function Proposalcomp() {
       <div className="div-for-title-proposal-comp-ii">Active Proposals</div>
       <div className="cards-of-all-active-proposal-in-proposal-comp">
         {isLoading ? (
-          <div>Loading...</div>
+          <div className="loader-data">
+            <h4>Loading...</h4>
+            <h5>Fetching the Proposal Data</h5>
+          </div>
         ) : (
           isSamhita &&
           allProposals.map((proposal) =>

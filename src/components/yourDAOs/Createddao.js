@@ -13,6 +13,7 @@ import languagedaoABI from "../../Samhita Artifacts/languagedao.json";
 import samhitaABI from "../../Samhita Artifacts/samhita.json";
 import { samhitatokencontract } from "../../ContractAddresses";
 import samhitatoken from "../../Samhita Artifacts/samhitaToken.json";
+import Loader from "../Loader"; // Import your loader component
 
 function Createddao() {
   const [allDataDaos, setDataDaos] = useState([]);
@@ -20,7 +21,7 @@ function Createddao() {
   const { address, isConnected } = useAccount();
   const [isJoined, setIsJoined] = useState();
   const [value, setValue] = React.useState("1");
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true); // Initialize loading as true
   const [isSamhita, setIsSamhita] = useState();
   const navigate = useNavigate();
   const [selectedDao, setSelectedDao] = useState(null);
@@ -31,7 +32,7 @@ function Createddao() {
   };
 
   const getAllDataDaos = async () => {
-    setLoading(false);
+    // setLoading(true); // You can remove this line as it's already initialized as true
     try {
       const { ethereum } = window;
       if (ethereum) {
@@ -47,8 +48,7 @@ function Createddao() {
             samhitaABI.abi,
             signer
           );
-          // const isJoined = await samhitaContract.checkIsMemberAdded(address);
-          // setIsJoined(isJoined);
+
           const contract = new ethers.Contract(
             languagedaofactory,
             languagedaofactoryABI.abi,
@@ -59,6 +59,7 @@ function Createddao() {
 
           const allDAOs = await contract.getAllDataDaos();
           console.log("allDAOS = ", allDAOs);
+
           for (let i = 0; i < allDAOs.length; i++) {
             const languageContract = new ethers.Contract(
               allDAOs[i].dataDaoAddress,
@@ -73,7 +74,7 @@ function Createddao() {
           }
           setJoinedDaos(joinedDaos);
           console.log("joined daos here = ", joinedDaos);
-          setLoading(true);
+          // Remove the setLoading line from here to properly handle loading
         } else {
           alert("Please connect to the BitTorrent Chain Donau!");
         }
@@ -81,8 +82,9 @@ function Createddao() {
     } catch (error) {
       console.log(error);
       alert(error["message"]);
+    } finally {
+      setLoading(false); // Set loading to false when done
     }
-    // const contract = await getContract();
   };
 
   useEffect(() => {
@@ -91,38 +93,42 @@ function Createddao() {
 
   return (
     <div>
-      <div className="main-container-of-the-create-dao">
-        {allDataDaos.map((dao) => (
-          <div key={dao.dataDaoAddress} className="card-of-the-joined-dao">
-            <div className="card-headerof-the-joined-dao">
-              <h2>{dao.dataDaoName}</h2>
-            </div>
-            <div className="card-body-of-the-joined-dao">
-              <p>{dao.dataDaoDescription}</p>
-            </div>
-            <div className="card-footer-of-the-joined-dao">
-              <div className="div-for-button-of-the-joined-dao">
-                {selectedDao &&
-                selectedDao.dataDaoAddress === dao.dataDaoAddress ? (
-                  // Render the Detailsofthedao component when the button is clicked
-                  <Detailsofthedao dao={selectedDao} />
-                ) : (
-                  <button
-                    className="view-more-button-of-the-create-dao"
-                    onClick={() => handleViewMoreClick(dao)}
-                  >
-                    View More{" "}
-                    <FontAwesomeIcon
-                      className="right-side-icon-of-button-in-the-joined-dao-for-view-more"
-                      icon={faArrowRight}
-                    />
-                  </button>
-                )}
+      {loading ? (
+        <Loader />
+      ) : (
+        <div className="main-container-of-the-create-dao">
+          {allDataDaos.map((dao) => (
+            <div key={dao.dataDaoAddress} className="card-of-the-joined-dao">
+              <div className="card-headerof-the-joined-dao">
+                <h2>{dao.dataDaoName}</h2>
+              </div>
+              <div className="card-body-of-the-joined-dao">
+                <p>{dao.dataDaoDescription}</p>
+              </div>
+              <div className="card-footer-of-the-joined-dao">
+                <div className="div-for-button-of-the-joined-dao">
+                  {selectedDao &&
+                  selectedDao.dataDaoAddress === dao.dataDaoAddress ? (
+                    // Render the Detailsofthedao component when the button is clicked
+                    <Detailsofthedao dao={selectedDao} />
+                  ) : (
+                    <button
+                      className="view-more-button-of-the-create-dao"
+                      onClick={() => handleViewMoreClick(dao)}
+                    >
+                      View More{" "}
+                      <FontAwesomeIcon
+                        className="right-side-icon-of-button-in-the-joined-dao-for-view-more"
+                        icon={faArrowRight}
+                      />
+                    </button>
+                  )}
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

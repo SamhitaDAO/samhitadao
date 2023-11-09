@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faArrowRight } from "@fortawesome/free-solid-icons";
+import { useNavigate } from "react-router-dom";
+import Loader from "../Loader"; // Import your loader component
 import Detailsofthedao from "../yourDAOs/Detailsofthedao";
 import "../../styles/yourDAOS/joineddao.css";
 import { ethers } from "ethers";
-import { useNavigate } from "react-router-dom";
+
 import SamhitaABI from "../../Samhita Artifacts/samhita.json";
 import { samhitacontract } from "../../ContractAddresses";
 import { languagedaofactory } from "../../ContractAddresses";
@@ -19,8 +18,10 @@ function Joineddao() {
   const [notCreatedLanguageDaos, setNotCreatedLanguageDaos] = useState([]);
   const [languageDaosInfo, setLanguageDaosInfo] = useState([]);
   const [isSamhita, setissamhita] = useState();
+  const [isLoading, setIsLoading] = useState(true);
 
   const gettingjoineddaos = async () => {
+    setIsLoading(true);
     console.log("entered into getting all daos function");
     try {
       const { ethereum } = window;
@@ -80,10 +81,13 @@ function Joineddao() {
     } catch (error) {
       console.log(error);
       alert(error["message"]);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const getsamhitajoined = async () => {
+    setIsLoading(true);
     try {
       const { ethereum } = window;
       if (ethereum) {
@@ -112,10 +116,13 @@ function Joineddao() {
     } catch (error) {
       console.log(error);
       alert(error["message"]);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   useEffect(() => {
+    setIsLoading(true);
     gettingjoineddaos();
     getsamhitajoined();
   }, []);
@@ -129,58 +136,61 @@ function Joineddao() {
 
   return (
     <div>
-      <div className="main-div-of-the-joined-dao">
-        {/* <button onClick={gettingjoineddaos}>getalldaos</button> */}
-
-        <div className="card-of-the-joined-dao">
-          <div className="card-headerof-the-joined-dao">
-            <h2>Samhita DAO</h2>
-          </div>
-          <div className="card-body-of-the-joined-dao">
-            <p>
-              Samhita DAO was born from a deep sense of urgency to save
-              endangered languages from disappearing into oblivion. Samhita DAO
-              is empowering communities to create dictionaries, grammar guides,
-              and oral histories that capture the essence of their language.
-            </p>
-          </div>
-          <div className="card-footer-of-the-joined-dao">
-            <div className="div-for-button-of-the-joined-dao">
-              <button
-                className="view-button-of-the-joined-dao"
-                onClick={() => handleViewMoreClick(true, samhitacontract)}
-              >
-                View More
-              </button>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <div className="main-div-of-the-joined-dao">
+          <div className="card-of-the-joined-dao">
+            <div className="card-headerof-the-joined-dao">
+              <h2>Samhita DAO</h2>
+            </div>
+            <div className="card-body-of-the-joined-dao">
+              <p>
+                Samhita DAO was born from a deep sense of urgency to save
+                endangered languages from disappearing into oblivion. Samhita
+                DAO is empowering communities to create dictionaries, grammar
+                guides, and oral histories that capture the essence of their
+                language.
+              </p>
+            </div>
+            <div className="card-footer-of-the-joined-dao">
+              <div className="div-for-button-of-the-joined-dao">
+                <button
+                  className="view-button-of-the-joined-dao"
+                  onClick={() => handleViewMoreClick(true, samhitacontract)}
+                >
+                  View More
+                </button>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="another-div-for-language-daos-info">
-          {languageDaosInfo.map((dao, i) => (
-            <div key={dao.dataDaoAddress} className="card-of-the-joined-dao">
-              <div className="card-headerof-the-joined-dao">
-                <h2>{dao.dataDaoName}</h2>
-              </div>
-              <div className="card-body-of-the-joined-dao">
-                <p>{dao.dataDaoDescription}</p>
-              </div>
-              <div className="card-footer-of-the-joined-dao">
-                <div className="div-for-button-of-the-joined-dao">
-                  <button
-                    className="view-button-of-the-joined-dao"
-                    onClick={() =>
-                      handleViewMoreClick(false, dao.dataDaoAddress)
-                    }
-                  >
-                    View More
-                  </button>
+          <div className="another-div-for-language-daos-info">
+            {languageDaosInfo.map((dao, i) => (
+              <div key={dao.dataDaoAddress} className="card-of-the-joined-dao">
+                <div className="card-headerof-the-joined-dao">
+                  <h2>{dao.dataDaoName}</h2>
+                </div>
+                <div className="card-body-of-the-joined-dao">
+                  <p>{dao.dataDaoDescription}</p>
+                </div>
+                <div className="card-footer-of-the-joined-dao">
+                  <div className="div-for-button-of-the-joined-dao">
+                    <button
+                      className="view-button-of-the-joined-dao"
+                      onClick={() =>
+                        handleViewMoreClick(false, dao.dataDaoAddress)
+                      }
+                    >
+                      View More
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
