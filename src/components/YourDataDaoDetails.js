@@ -70,7 +70,7 @@ function YourDataDaoDetails({
   //         console.log(contract);
   //         return contract;
   //       } else {
-  //         alert("Please connect to the BitTorrent Chain Donau!");
+  //         alert("Please connect to the BitTorrent Chain Mainnet!");
   //       }
   //     }
   //   } catch (error) {

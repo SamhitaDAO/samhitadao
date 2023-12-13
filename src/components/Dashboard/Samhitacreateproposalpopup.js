@@ -28,7 +28,7 @@ function Samhitacreateproposalpopup({ onClose }) {
         }
         const { chainId } = await provider.getNetwork();
 
-        if (chainId === 1029) {
+        if (chainId === 199) {
           const contract = new ethers.Contract(
             samhitacontract,
             samhitaABI.abi,
@@ -86,7 +86,7 @@ function Samhitacreateproposalpopup({ onClose }) {
 
           console.log("Proposal created with ID:", proposalId);
         } else {
-          alert("Please connect to the BitTorrent Chain Donau!");
+          alert("Please connect to the BitTorrent Chain Mainnet!");
         }
       }
     } catch (error) {

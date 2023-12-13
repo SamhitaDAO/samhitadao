@@ -78,7 +78,7 @@ function AvailabelProposal({ daoAddress, isSamhita }) {
           }
         }
         // else {
-        //   alert("Please connect to the BitTorrent Chain Donau!");
+        //   alert("Please connect to the BitTorrent Chain Mainnet!");
         // }
       }
       setLoading(false);
@@ -156,7 +156,7 @@ function AvailabelProposal({ daoAddress, isSamhita }) {
             setUpvoteLoading(false);
           }
         } else {
-          // alert("Please connect to the BitTorrent Chain Donau!");
+          // alert("Please connect to the BitTorrent Chain Mainnet!");
           setUpvoteLoading(false);
         }
       }
@@ -232,7 +232,7 @@ function AvailabelProposal({ daoAddress, isSamhita }) {
           }
         }
         // else {
-        //   alert("Please connect to the BitTorrent Chain Donau!");
+        //   alert("Please connect to the BitTorrent Chain Mainnet!");
         // }
       }
     } catch (error) {
@@ -273,7 +273,7 @@ function AvailabelProposal({ daoAddress, isSamhita }) {
           }
         }
         // else {
-        //   alert("Please connect to the BitTorrent Chain Donau!");
+        //   alert("Please connect to the BitTorrent Chain Mainnet!");
         // }
       }
     } catch (error) {

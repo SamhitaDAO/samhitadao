@@ -42,7 +42,7 @@ function Createddao() {
           console.log("Metamask is not installed, please install!");
         }
         const { chainId } = await provider.getNetwork();
-        if (chainId === 1029) {
+        if (chainId === 199) {
           const samhitaContract = new ethers.Contract(
             samhitacontract,
             samhitaABI.abi,
@@ -76,7 +76,7 @@ function Createddao() {
           console.log("joined daos here = ", joinedDaos);
           // Remove the setLoading line from here to properly handle loading
         } else {
-          alert("Please connect to the BitTorrent Chain Donau!");
+          alert("Please connect to the BitTorrent Chain Mainnet!");
         }
       }
     } catch (error) {

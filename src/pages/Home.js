@@ -31,7 +31,7 @@ function Home() {
         }
         const { chainId } = await provider.getNetwork();
 
-        if (chainId === 1029) {
+        if (chainId === 199) {
           const contract = new ethers.Contract(
             samhitatokencontract,
             samhitatokenABI.abi,
@@ -44,7 +44,7 @@ function Home() {
 
           console.log("completed delegating...");
         } else {
-          alert("Please connect to the BitTorrent Chain Donau!");
+          alert("Please connect to the BitTorrent Chain Mainnet!");
         }
       }
     } catch (error) {

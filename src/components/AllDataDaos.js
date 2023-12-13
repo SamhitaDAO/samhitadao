@@ -130,7 +130,7 @@ function AllDataDaos({
           // console.log(newData);
           // setHasJoinedDao(newData)
         } else {
-          alert("Please connect to the BitTorrent Chain Donau!");
+          alert("Please connect to the BitTorrent Chain Mainnet!");
         }
       }
     } catch (error) {
@@ -173,7 +173,7 @@ function AllDataDaos({
           setLoading(false);
         }
         //  else {
-        //   alert("Please connect to the BitTorrent Chain Donau!");
+        //   alert("Please connect to the BitTorrent Chain Mainnet!");
         // }
       }
     } catch (error) {
@@ -205,7 +205,7 @@ function AllDataDaos({
           setHasJoinSamhita(hasJoined);
         }
         // else {
-        //   alert("Please connect to the BitTorrent Chain Donau!");
+        //   alert("Please connect to the BitTorrent Chain Mainnet!");
         // }
       }
     } catch (error) {
@@ -259,7 +259,7 @@ function AllDataDaos({
           window.location.reload();
         }
         // else {
-        //   alert("Please connect to the BitTorrent Chain Donau!");
+        //   alert("Please connect to the BitTorrent Chain Mainnet!");
         // }
       }
     } catch (error) {
@@ -291,7 +291,7 @@ function AllDataDaos({
           setHasJoinSamhita(hasJoined);
         }
         // else {
-        //   alert("Please connect to the BitTorrent Chain Donau!");
+        //   alert("Please connect to the BitTorrent Chain Mainnet!");
         // }
       }
     } catch (error) {

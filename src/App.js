@@ -46,26 +46,26 @@ import Samhitacreateproposalpopup from "./components/Dashboard/Samhitacreateprop
 
 function App() {
   const BTTChain = {
-    id: 1029,
-    name: "BitTorrent Chain Donau",
-    network: "BitTorrent Chain Donau",
+    id: 199,
+    name: "BitTorrent Chain Mainnet",
+    network: "BitTorrent Chain Mainnet",
     iconUrl: "https://testscan.bt.io/static/media/BTT.e13a6c4e.svg",
     iconBackground: "#fff",
     nativeCurrency: {
       decimals: 18,
-      name: "BitTorrent Chain Donau",
+      name: "BitTorrent Chain Mainnet",
       symbol: "BTT",
     },
     rpcUrls: {
-      default: " https://pre-rpc.bt.io",
+      default: "https://rpc.bt.io",
     },
     blockExplorers: {
       default: {
-        name: "BitTorrent Chain Donau",
-        url: "https://testnet.bttcscan.com",
+        name: "BitTorrent Chain Mainnet",
+        url: "https://bttcscan.com/",
       },
     },
-    testnet: true,
+    testnet: false,
   };
 
   const { chains, provider } = configureChains(
@@ -73,7 +73,7 @@ function App() {
     [
       jsonRpcProvider({
         rpc: (chain) => ({
-          http: " https://pre-rpc.bt.io",
+          http: "https://rpc.bt.io",
         }),
       }),
       alchemyProvider({ apiKey: "O5NYvtwLMNG0LjAXPQEk0YJT2l3UxTAY" }),

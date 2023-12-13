@@ -30,7 +30,7 @@ function Templatecomp() {
           console.log("Metamask is not installed, please install!");
         }
         const { chainId } = await provider.getNetwork();
-        if (chainId === 1029) {
+        if (chainId === 199) {
           const contract = new ethers.Contract(
             samhitacontract,
             SamhitaABI.abi,

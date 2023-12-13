@@ -46,7 +46,7 @@ function Proposalcomp() {
         }
         const { chainId } = await provider.getNetwork();
         console.log("switch case for this case is: " + chainId);
-        if (chainId === 1029) {
+        if (chainId === 199) {
           const contract = new ethers.Contract(
             samhitacontract,
             SamhitaABI.abi,
@@ -56,7 +56,7 @@ function Proposalcomp() {
           const result = await contract.castVote(proposalId, vote);
           console.log("Vote cast result:", result);
         } else {
-          alert("Please connect to the BitTorrent Chain Donau!");
+          alert("Please connect to the BitTorrent Chain Mainnet!");
         }
       }
     } catch (error) {
@@ -78,7 +78,7 @@ function Proposalcomp() {
         }
         const { chainId } = await provider.getNetwork();
         console.log("switch case for this case is: " + chainId);
-        if (chainId === 1029) {
+        if (chainId === 199) {
           const contract = new ethers.Contract(
             samhitacontract,
             SamhitaABI.abi,
@@ -112,7 +112,7 @@ function Proposalcomp() {
           console.log("Metamask is not installed, please install!");
         }
         const { chainId } = await provider.getNetwork();
-        if (chainId === 1029) {
+        if (chainId === 199) {
           const contract = new ethers.Contract(
             samhitacontract,
             SamhitaABI.abi,

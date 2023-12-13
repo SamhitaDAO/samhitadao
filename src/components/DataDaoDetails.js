@@ -109,7 +109,7 @@ function DataDaoDetails({
           }
         }
         // else {
-        //   alert("Please connect to the BitTorrent Chain Donau!");
+        //   alert("Please connect to the BitTorrent Chain Mainnet!");
         // }
       }
     } catch (error) {
@@ -177,7 +177,7 @@ function DataDaoDetails({
           }
         }
         // else {
-        //   alert("Please connect to the BitTorrent Chain Donau!");
+        //   alert("Please connect to the BitTorrent Chain Mainnet!");
         // }
       }
       setbtnloading(false);

@@ -63,7 +63,7 @@ const Template = ({ daoAddress, isSamhita }) => {
           setLoading(true);
           console.log(temp);
         } else {
-          alert("Please connect to the BitTorrent Chain Donau!");
+          alert("Please connect to the BitTorrent Chain Mainnet!");
         }
       }
     } catch (error) {

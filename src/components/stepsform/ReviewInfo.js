@@ -42,7 +42,7 @@ function ReviewInfo({
         }
         const { chainId } = await provider.getNetwork();
         console.log("switch case for this case is: " + chainId);
-        if (chainId === 1029) {
+        if (chainId === 199) {
           const contract = new ethers.Contract(
             languagedaofactory,
             languagedaofactoryABI.abi,
@@ -51,7 +51,7 @@ function ReviewInfo({
 
           return contract;
         } else {
-          alert("Please connect to the BitTorrent Chain Donau!");
+          alert("Please connect to the BitTorrent Chain Mainnet!");
         }
       }
     } catch (error) {

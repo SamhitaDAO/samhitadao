@@ -93,7 +93,7 @@ function YourDaos({ setSingleYourDataDao, setYourDaos, setDaoAddress }) {
   //         setJoinedDaos(joinedDaosArray);
   //         setLoading(true);
   //       } else {
-  //         alert("Please connect to the BitTorrent Chain Donau!");
+  //         alert("Please connect to the BitTorrent Chain Mainnet!");
   //       }
   //     }
   //   } catch (error) {

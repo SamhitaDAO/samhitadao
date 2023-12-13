@@ -93,7 +93,7 @@ function PreExistingdaos({ props, onclose }) {
           console.log("Metamask is not installed, please install!");
         }
         const { chainId } = await provider.getNetwork();
-        if (chainId === 1029) {
+        if (chainId === 199) {
           const contract = new ethers.Contract(
             samhitacontract,
             SamhitaABI.abi,
@@ -105,9 +105,14 @@ function PreExistingdaos({ props, onclose }) {
             signer
           );
           const price = await tokenContract.getTokenPrice();
-          const decimal_price = parseInt(price._hex, 16);
-          const value = tokensToPurchase * decimal_price;
+          const decimal_price = ethers.utils.formatUnits(price, 18);
+          console.log(tokensToPurchase);
+          console.log(decimal_price);
+          const value = ethers.utils.parseEther(
+            String(tokensToPurchase * decimal_price)
+          );
           settxloading(true);
+          console.log(String(value));
           const tx = await contract.addMember(tokensToPurchase, {
             value: String(value),
           });
@@ -119,7 +124,7 @@ function PreExistingdaos({ props, onclose }) {
             togglePopup();
           }, 3000);
         } else {
-          alert("Please connect to the BitTorrent Chain Donau!");
+          alert("Please connect to the BitTorrent Chain Mainnet!");
         }
       }
     } catch (error) {
@@ -136,7 +141,7 @@ function PreExistingdaos({ props, onclose }) {
         const provider = new ethers.providers.Web3Provider(ethereum);
         const signer = provider.getSigner();
         const { chainId } = await provider.getNetwork();
-        if (chainId === 1029) {
+        if (chainId === 199) {
           const contract = new ethers.Contract(
             samhitacontract,
             SamhitaABI.abi,
@@ -146,7 +151,7 @@ function PreExistingdaos({ props, onclose }) {
           const hasjoined = await contract.isMemberAdded(user);
           sethasjoinsamhita(hasjoined);
         } else {
-          alert("Please connect to the BitTorrent Chain Donau!");
+          alert("Please connect to the BitTorrent Chain Mainnet!");
         }
       }
     } catch (error) {
@@ -169,7 +174,7 @@ function PreExistingdaos({ props, onclose }) {
         console.log("out");
         const signer = provider.getSigner();
         const { chainId } = await provider.getNetwork();
-        if (chainId === 1029) {
+        if (chainId === 199) {
           const contract = new ethers.Contract(
             languagedaofactory,
             languagedaofactoryABI.abi,
@@ -237,7 +242,7 @@ function PreExistingdaos({ props, onclose }) {
           const updatedJoinedValues = newData.map((item) => item.hasJoined);
           setHasJoinedValues(updatedJoinedValues);
         } else {
-          alert("Please connect to the BitTorrent Chain Donau!");
+          alert("Please connect to the BitTorrent Chain Mainnet!");
         }
       }
     } catch (error) {
@@ -264,7 +269,7 @@ function PreExistingdaos({ props, onclose }) {
           console.log("Metamask is not installed, please install!");
         }
         const { chainId } = await provider.getNetwork();
-        if (chainId === 1029) {
+        if (chainId === 199) {
           const contract = new ethers.Contract(
             daoAddress,
             languagedaoABI.abi,
@@ -306,7 +311,7 @@ function PreExistingdaos({ props, onclose }) {
 
           window.location.reload();
         } else {
-          alert("Please connect to the BitTorrent Chain Donau!");
+          alert("Please connect to the BitTorrent Chain Mainnet!");
         }
       }
     } catch (error) {
@@ -327,7 +332,7 @@ function PreExistingdaos({ props, onclose }) {
         }
         const { chainId } = await provider.getNetwork();
         console.log("switch case for this case is: " + chainId);
-        if (chainId === 1029) {
+        if (chainId === 199) {
           const contract = new ethers.Contract(
             langdaoAddress,
             SamhitaABI.abi,
@@ -344,7 +349,7 @@ function PreExistingdaos({ props, onclose }) {
 
           setislangjoined(hasJoined);
         } else {
-          alert("Please connect to the BitTorrent Chain Donau!");
+          alert("Please connect to the BitTorrent Chain Mainnet!");
         }
       }
     } catch (error) {
